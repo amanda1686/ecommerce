@@ -1,20 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
 import Navbar from './componentes/navbar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Product from './pages/productos'
+import Login from './pages/login'
+import Producto_unico from './pages/producto_unico'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
 
   return (
-    <>
-    <Navbar/>
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Button
-</button>
-    </>
+    <BrowserRouter>
+    <Navbar />
+      <Routes>
+        <Route path='/productos' element={<Product />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/producto_unico' element={<Producto_unico />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
