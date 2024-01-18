@@ -1,5 +1,5 @@
 import React from 'react'
-import Api from '../componentes/Catalog'
+import Catalog from '../componentes/Catalog'
 
 
 
@@ -7,6 +7,7 @@ function Product() {
   return (
     <div>
       <h1>hola</h1>
+      <Catalog />
     </div>
   )
 }
