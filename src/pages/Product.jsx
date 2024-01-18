@@ -1,8 +1,9 @@
 import React from 'react'
+import Api from '../componentes/Catalog'
 
 
 
-function productos() {
+function Product() {
   return (
     <div>
       <h1>hola</h1>
@@ -10,4 +11,4 @@ function productos() {
   )
 }
 
-export default productos
+export default Product

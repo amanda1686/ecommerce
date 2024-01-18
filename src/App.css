@@ -1,1 +1,12 @@
 /* Código borrado, creaba conflicto */
+*{
+    font-family: 'Monserrat', sans-serif;
+}
+
+.slick-slide > div{
+    margin: 0 10px;
+}
+.slick-prev:before,
+.slick-next:before{
+    color: black!important;
+}
