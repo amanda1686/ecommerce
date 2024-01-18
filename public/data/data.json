@@ -4,7 +4,7 @@
     "name": "Coco rallado",
     "price": 2.85,
     "category": "frutos",
-    "img": "../images/coco-rallado.jpg",
+    "img": "https://www.meritene.es/sites/g/files/lpfasj456/files/2020-03/Producto%20Fuerza%20vitalidad%20neutro.png",
     "description": "Coco rallado de alta calidad para usar en repostería o como complemento en diversos platillos."
   },
   {
@@ -12,7 +12,7 @@
     "name": "Harina de almendra",
     "price": 7.6,
     "category":  "celiaco",
-    "img": "../images/harina-de-almendra.jpg",
+    "img": "../../public/img/leche-de-almendras.jpg",
     "description": "Harina de almendra finamente molida, ideal para personas con intolerancia al gluten."
   },
   {
