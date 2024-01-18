@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import ghandslogo from '../assets/imagenes/logo/ghandslogo.svg'
 import loginicon from '../assets/imagenes/logo/loginicon.png'
-
+import SearchBar from './SearchBar';
 
 const navigation = [
   { name: 'Home', href: '/Home', current: true },
@@ -77,6 +77,19 @@ export default function Navbar() {
                   </a>
                   <span className="sr-only">Cart</span>
                 </button>
+                {/* buscador lupa */}
+                <button
+                  type="button"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">View notifications</span>
+                  <SearchBar/>
+                  
+                </button>
+                
+
+
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
