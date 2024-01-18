@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Product from "../Product/Product";
-import data from "../../data/data.json";
+import Product from "../componentes/Product";
+import data from '../../';
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
