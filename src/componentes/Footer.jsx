@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../componentes/Logo'
 import ContactForm from './ContactForm';
 import '../Index.css';
+import '../index.css';
 
 const Footer = () => {
   return (
@@ -12,14 +13,13 @@ const Footer = () => {
                 <div className="flex justify-center text-teal-600 sm:justify-start">
                     <Logo/ >
                 </div>
-
                 <p className="mt-4 max-w-md text-center leading-relaxed text-gray-500 sm:text-left lg:mt-0">
                     Confianos el cuidado de tus familiares, nuestros adultos mayores se merecen el mejor cuidado posible.
                 </p>
                 </div>
 
                 <div
-                className="mt-16 grid grid-cols-1 gap-8 border-t border-gray-100 pt-16 md:grid-cols-4 lg:grid-cols-6"
+                className="mt-16 grid grid-cols-1 gap-8 border-t border-gray-100 pt-16 md:grid-cols-3 lg:grid-cols-5 "
                 >
                 <div className="text-center sm:text-left">
                     <p className="text-lg font-medium text-gray-900">Sobre nosotros</p>
@@ -27,29 +27,25 @@ const Footer = () => {
                     <ul className="mt-8 space-y-4 text-sm">
                     <li>
                         <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        Company History
+                        Quienes somos
                         </a>
                     </li>
 
                     <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Meet the Team </a>
+                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Nuestro equipo </a>
                     </li>
 
                     <li>
                         <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        Employee Handbook
+                        Empleabilidad
                         </a>
                     </li>
 
-                    <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Careers </a>
-                    </li>
                     </ul>
                 </div>
 
                 <div className="text-center sm:text-left">
                     <p className="text-lg font-medium text-gray-900">Productos</p>
-
                     <ul className="mt-8 space-y-4 text-sm">
                     <li>
                         <a className="text-gray-700 transition hover:text-gray-700/75" href="/Product">
@@ -58,23 +54,20 @@ const Footer = () => {
                     </li>
 
                     <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Web Design </a>
+                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">Búsqueda </a>
                     </li>
 
                     <li>
                         <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Marketing </a>
                     </li>
 
-                    <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Google Ads </a>
-                    </li>
                     </ul>
                 </div>
 
-                
+
 
                 <div className="text-center sm:text-left">
-                    <p className="text-lg font-medium text-gray-900">Helpful Links</p>
+                    <p className="text-lg font-medium text-gray-900">Ayuda</p>
 
                     <ul className="mt-8 space-y-4 text-sm">
                     <li>
@@ -82,7 +75,7 @@ const Footer = () => {
                     </li>
 
                     <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Support </a>
+                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Accesibilidad </a>
                     </li>
 
                     <li>
@@ -90,7 +83,7 @@ const Footer = () => {
                         className="group flex justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
                         href="/"
                         >
-                        <span className="text-gray-700 transition group-hover:text-gray-700/75"> Live Chat </span>
+                        <span className="text-gray-700 transition group-hover:text-gray-700/75"> Chat en vivo </span>
 
                         <span className="relative flex h-2 w-2">
                             <span
@@ -103,7 +96,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* <div className="text-center sm:text-left md:col-span-4 lg:col-span-2">
+                <div className="text-center sm:text-left md:col-span-4 lg:col-span-2">
                     <p className="text-lg font-medium text-gray-900">Informate</p>
 
                     <div className="mx-auto mt-8 max-w-md sm:ms-0">
@@ -111,37 +104,18 @@ const Footer = () => {
                     Recibe hasta 747€ al mes en ayudas de la Ley de Dependencia.
                     </p>
 
-                    
+
                     </div>
-                </div> */}
-                <div className="text-center sm:text-left">
-                <form className="mt-4">
-                        <ContactForm/>
-                        <div className="flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-start">
-                        <label htmlFor="email" className="sr-only">Email</label>
-{/* 
-                        <input
-                            className="w-full rounded-full border-gray-200 px-6 py-3 shadow-sm"
-                            type="email"
-                            placeholder="Enter your email"
-                        />
-
-                        <button
-                            className="block rounded-full bg-indigo-500 px-8 py-3 font-medium text-white transition hover:bg-indigo-600"
-                            type="submit"
-                        >
-                            Subscribe
-                        </button> */}
-                        </div>
-                    </form>
+                <div className="text-center sm:text-left lg:col-span-2 lg:mt-[-73px]  sm:mt-0">
+                    <ContactForm/>
                 </div>
                 </div>
-
+                </div>
+  
                 <div className="mt-16 border-t border-gray-100 pt-6 sm:flex sm:items-center sm:justify-between">
                 <p className="text-center text-sm text-gray-500 sm:text-left">
                      &copy; GoldenHands 2024
                 </p>
-
                 <ul className="mt-4 flex justify-center gap-6 sm:mt-0 sm:justify-start">
                     <li>
                     <a
@@ -160,7 +134,6 @@ const Footer = () => {
                         </svg>
                     </a>
                     </li>
-
                     <li>
                     <a
                         href="/"
@@ -178,7 +151,6 @@ const Footer = () => {
                         </svg>
                     </a>
                     </li>
-
                     <li>
                     <a
                         href="/"
@@ -194,7 +166,6 @@ const Footer = () => {
                         </svg>
                     </a>
                     </li>
-
                     <li>
                     <a
                         href="/"
@@ -219,6 +190,4 @@ const Footer = () => {
     </div>
   )
 }
-
 export default Footer
-
