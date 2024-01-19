@@ -19,7 +19,7 @@ function App() {
         <Route path="/Productdetails" element={<Productounico />} />
         <Route path="/Aboutus" element={<Aboutus />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/Cart" element={<Cart />} />{" "}
+        <Route path="/Cart" element={<Cart />} />
         
       </Routes>
     </BrowserRouter>
