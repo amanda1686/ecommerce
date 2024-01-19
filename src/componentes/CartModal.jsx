@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
-Modal.setAppElement('#root'); // Especifica el elemento raíz de tu aplicación
+// Modal.setAppElement('#root'); // Especifica el elemento raíz de tu aplicación
 
 const CartModal = ({ isOpen, closeModal, cartItems, totalItems, totalPrice }) => {
   return (
