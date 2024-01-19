@@ -15,9 +15,6 @@ import "slick-carousel/slick/slick.css"
 import ghands from '../assets/imagenes/logo/ghands.svg'
 
 
-
-
-
 export default function Sliderproducts() {
 
   const settings ={
