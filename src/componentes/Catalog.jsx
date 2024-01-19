@@ -14,7 +14,6 @@ export default function Catalog() {
     const existingProduct = cart.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // If the product is already in the cart, update the quantity
       const updatedCart = cart.map((item) =>
         item.id === product.id
           ? { ...item, quantity: item.quantity + quantity }
@@ -22,7 +21,6 @@ export default function Catalog() {
       );
       setCart(updatedCart);
     } else {
-      // If the product is not in the cart, add it
       setCart([...cart, { ...product, quantity }]);
     }
   };
@@ -45,12 +43,22 @@ export default function Catalog() {
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products.map((product) => (
             <div key={product.id} className="group relative border p-4">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80 relative">
                 <img
                   src={product.img}
                   alt={product.img}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button
+                    onClick={() => {
+                      handleAddToCart(product, 1);
+                    }}
+                    className="bg-blue-500 text-white px-3 py-1 rounded-md"
+                  >
+                    Añadir al Carrito
+                  </button>
+                </div>
               </div>
               <div className="mt-4 flex flex-col justify-between h-full">
                 <div>
@@ -59,14 +67,6 @@ export default function Catalog() {
                 </div>
                 <div className="flex items-center mt-4">
                   <div className="flex items-center">
-                    <button
-                      onClick={() => {
-                        handleAddToCart(product, 1);
-                      }}
-                      className="bg-blue-500 text-white px-3 py-1 rounded-md mr-2"
-                    >
-                      Añadir al Carrito
-                    </button>
                     <button
                       onClick={() => {
                         handleAddToWishlist(product);
