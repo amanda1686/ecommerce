@@ -6,6 +6,7 @@ import ghandslogo from '../assets/imagenes/logo/ghandslogo.svg'
 import loginicon from '../assets/imagenes/logo/loginicon.png'
 import SearchBar from './SearchBar';
 
+
 const navigation = [
   { name: 'Home', href: '/Home', current: true },
   { name: 'Product', href: '/Product', current: false },
@@ -47,7 +48,7 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className="hidden sm:ml-4 sm:block mt-4">
-                  <div className="flex space-x-10 ms-80">
+                  <div className="flex space-x-2 ms-80">
                     {navigation.map((item) => (
                       <Link 
                       to={item.href}
@@ -71,25 +72,20 @@ export default function Navbar() {
                   className="relative rounded-full bg-gray-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <a href="/Product">
                   <span className="absolute -inset-1.5" />
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 hidden sm:block">
                   <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
                   </svg>
                   </a>
                   <span className="sr-only">Cart</span>
                 </button>
-                {/* buscador lupa */}
-                <button
-                  type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <SearchBar/>
+
+                {/* BUSCADOR DE LUPA */}
+               
+            
+                <SearchBar />
                   
-                </button>
                 
-
-
+                
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
