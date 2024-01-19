@@ -20,7 +20,7 @@ function App() {
         <Route path="/Aboutus" element={<Aboutus />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Cart" element={<Cart />} />{" "}
-        {/* Nueva ruta para el carrito */}
+        
       </Routes>
     </BrowserRouter>
   );
