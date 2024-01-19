@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Product from '../Product/Product';
-import data from '../../data/data.json';
+import React, { useState } from "react";
+import Product from "../Product/Product";
+import data from "../../data/data.json";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -30,7 +30,5 @@ const Cart = () => {
     </div>
   );
 };
-
-export default Cart;
 
 export default Cart;
