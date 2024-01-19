@@ -1,40 +1,22 @@
 import React from 'react';
-import Modal from 'react-modal';
-import PropTypes from 'prop-types';
 
-Modal.setAppElement('#root'); // Especifica el elemento raíz de tu aplicación
+const CartModal = ({ isOpen, closeModal, product }) => {
+  if (!isOpen) {
+    return null;
+  }
 
-const CartModal = ({ isOpen, closeModal, cartItems, totalItems, totalPrice }) => {
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={closeModal}
-      contentLabel="Carrito de Compras"
-    >
-      <h2>Carrito de Compras</h2>
-      <p>Total de Artículos: {totalItems}</p>
-      <div>
-        {cartItems.map((item) => (
-          <div key={item.id}>
-            <p>{item.name}</p>
-            <p>Cantidad: {item.quantity}</p>
-            <p>Precio por unidad: ${item.price.toFixed(2)}</p>
-            <hr />
-          </div>
-        ))}
+    <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white p-4 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4">{product.name}</h2>
+        <p>Precio: ${product.price}</p>
+        <p>Descripción: {product.description}</p>
+        <button onClick={closeModal} className="bg-blue-500 text-white px-3 py-1 rounded-md mt-4">
+          Cerrar Detalles
+        </button>
       </div>
-      <p>Total: ${totalPrice.toFixed(2)}</p>
-      <button onClick={closeModal}>Cerrar</button>
-    </Modal>
+    </div>
   );
-};
-
-CartModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired,
-  cartItems: PropTypes.array.isRequired,
-  totalItems: PropTypes.number.isRequired,
-  totalPrice: PropTypes.number.isRequired,
 };
 
 export default CartModal;
