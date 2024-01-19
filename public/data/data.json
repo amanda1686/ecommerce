@@ -5,7 +5,6 @@
     "price": 2.85,
     "category": "frutos",
     "img": "../../public/img/coco-rallado.jpg",
-    "img": "../../public/img/coco-rallado.jpg",
     "description": "Coco rallado de alta calidad para usar en repostería o como complemento en diversos platillos."
   },
   {
@@ -28,11 +27,7 @@
     "id": 4,
     "name": "Harina de avena",
     "price": 5.3,
-<<<<<<<<< Temporary merge branch 1
     "category": "celiaco",
-=========
-    "category":  "celiaco",
->>>>>>>>> Temporary merge branch 2
     "img": "../../public/img/harina-de-avena.jpg",
     "description": "Harina de avena integral, rica en fibra y versátil para diversas recetas sin gluten."
   },
@@ -40,11 +35,7 @@
     "id": 5,
     "name": "Harina de coco",
     "price": 7.4,
-<<<<<<<<< Temporary merge branch 1
-    "category": "celiaco",
-=========
     "category":  "celiaco",
->>>>>>>>> Temporary merge branch 2
     "img": "../../public/img/harina-de-coco.webp",
     "description": "Harina de coco natural, añade un sutil sabor a coco a tus preparaciones sin gluten."
   },
@@ -52,11 +43,7 @@
     "id": 6,
     "name": "Harina de garbanzo",
     "price": 6.2,
-<<<<<<<<< Temporary merge branch 1
-    "category": "celiaco",
-=========
     "category":  "celiaco",
->>>>>>>>> Temporary merge branch 2
     "img": "../../public/img/harina-de-garbanzo.jpg",
     "description": "Harina de garbanzo ideal para la cocina sin gluten, con un toque nutritivo y sabroso."
   },
@@ -64,13 +51,8 @@
     "id": 7,
     "name": "Harina de trigo Sarraceno",
     "price": 2.3,
-<<<<<<<<< Temporary merge branch 1
     "category": "celiaco",
-    "img": "../../public/img/Harina-de-Trigo-Sarraceno.webp",
-=========
-    "category":  "celiaco",
     "img": "../../public/img/images/Harina-de-Trigo-Sarraceno.webp",
->>>>>>>>> Temporary merge branch 2
     "description": "Harina de trigo sarraceno, alternativa sin gluten con un perfil nutricional único."
   },
   {
