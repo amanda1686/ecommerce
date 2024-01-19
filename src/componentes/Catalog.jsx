@@ -39,9 +39,9 @@ export default function Catalog() {
           Productos
         </h2>
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products.map((product) => (
-            <div key={product.id} className="group relative">
+            <div key={product.id} className="group relative border p-4">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
                   src={product.img}
@@ -49,52 +49,44 @@ export default function Catalog() {
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
-              <div className="mt-4 flex justify-between items-center">
+              <div className="mt-4 flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-sm text-gray-700">
-                    <span aria-hidden="true" className="absolute inset-0" />
-                    {product.name}
-                  </h3>
+                  <h3 className="text-sm text-gray-700 mb-2">{product.name}</h3>
+                  <p className="text-sm font-medium text-gray-900">{product.price}.€</p>
                 </div>
-                <div className="flex items-center">
-                  <input
-                    type="number"
-                    min="1"
-                    defaultValue="1"
-                    className="mr-2 border border-gray-300 rounded-md p-1 w-12 text-center"
-                  />
-                  <button
-                    onClick={() => {
-                      handleAddToCart(product, 1); // Si necesitas cambiar la cantidad, ajusta este valor
-                    }}
-                    className="bg-blue-500 text-white px-3 py-1 rounded-md mr-2"
-                  >
-                    Añadir al Carrito
-                  </button>
-                  <button
-                    onClick={() => {
-                      handleAddToWishlist(product);
-                    }}
-                    className="text-gray-700 hover:text-red-500"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      className="h-5 w-5"
+                <div className="flex items-center mt-4">
+                  <div className="flex items-center">
+                    <button
+                      onClick={() => {
+                        handleAddToCart(product, 1);
+                      }}
+                      className="bg-blue-500 text-white px-3 py-1 rounded-md mr-2"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M7 21l5-5m5-5L7 7"
-                      />
-                    </svg>
-                  </button>
-                  <button onClick={() => openModal(product)}>
-                    Ver Detalles
-                  </button>
+                      Añadir al Carrito
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleAddToWishlist(product);
+                      }}
+                      className="text-gray-700 hover:text-red-500 mr-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="h-5 w-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M7 21l5-5m5-5L7 7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <button onClick={() => openModal(product)}>Ver Detalles</button>
                 </div>
               </div>
             </div>
