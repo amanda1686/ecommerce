@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Productounico from "./pages/Productdetails";
 import Aboutus from "./pages/Aboutus";
 import Home from "./pages/Home";
-import Cart from "./componentes/Cart";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/Productdetails" element={<Productounico />} />
         <Route path="/Aboutus" element={<Aboutus />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/Cart" element={<Cart />} />{" "}
+        <Route path="/Cart" element={<Cart />} />
         
       </Routes>
     </BrowserRouter>

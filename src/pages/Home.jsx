@@ -14,9 +14,6 @@ const slides =[ Img, Img2, Img3, Img4 ]
 export default function Home() {
   return (
     <div>
-         <div>
-        
-        </div>
         <div 
         className="overflow-hidden relative"
         // className='max-w-lg'
