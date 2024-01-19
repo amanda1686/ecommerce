@@ -3,10 +3,12 @@ import Catalog from '../componentes/Catalog'
 
 
 
+
 function Product() {
   return (
     <div>
       <Catalog />
+    
     </div>
   )
 }
