@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Productounico from './pages/Productdetails'
 import Aboutus from './pages/Aboutus'
 import Home from './pages/Home'
+import Footer from './componentes/Footer'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Aboutus' element={<Aboutus />} />
         <Route path='/Home' element={<Home />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
