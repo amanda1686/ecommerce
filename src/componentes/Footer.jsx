@@ -71,35 +71,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div className="text-center sm:text-left">
-                    <p className="text-lg font-medium text-gray-900">Resources</p>
-
-                    <ul className="mt-8 space-y-4 text-sm">
-                    <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Online Guides </a>
-                    </li>
-
-                    <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        Conference Notes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Forum </a>
-                    </li>
-
-                    <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/"> Downloads </a>
-                    </li>
-
-                    <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        Upcoming Events
-                        </a>
-                    </li>
-                    </ul>
-                </div>
+                
 
                 <div className="text-center sm:text-left">
                     <p className="text-lg font-medium text-gray-900">Helpful Links</p>
@@ -131,7 +103,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div className="text-center sm:text-left md:col-span-4 lg:col-span-2">
+                {/* <div className="text-center sm:text-left md:col-span-4 lg:col-span-2">
                     <p className="text-lg font-medium text-gray-900">Informate</p>
 
                     <div className="mx-auto mt-8 max-w-md sm:ms-0">
@@ -139,7 +111,11 @@ const Footer = () => {
                     Recibe hasta 747€ al mes en ayudas de la Ley de Dependencia.
                     </p>
 
-                    <form className="mt-4">
+                    
+                    </div>
+                </div> */}
+                <div className="text-center sm:text-left">
+                <form className="mt-4">
                         <ContactForm/>
                         <div className="flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-start">
                         <label htmlFor="email" className="sr-only">Email</label>
@@ -158,7 +134,6 @@ const Footer = () => {
                         </button> */}
                         </div>
                     </form>
-                    </div>
                 </div>
                 </div>
 
