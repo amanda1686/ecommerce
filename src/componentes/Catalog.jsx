@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import data from "../../public/data/data.json"; // Importa los datos directamente
-import CartModal from "../componentes/CartModal";
+import data from "../../public/data/data.json";
+import CartModal from "../components/Cart/CartModal";
 
 export default function Catalog() {
   const [products, setProducts] = useState([]);
