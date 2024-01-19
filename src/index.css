@@ -7,3 +7,8 @@
     background-color: #032940;
   }
 
+  @screen lg {
+    .lg\:mt-custom {
+      margin-top: -70px; /* o el valor que desees */
+    }
+  }

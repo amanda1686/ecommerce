@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react'
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -147,4 +147,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactForm;;
