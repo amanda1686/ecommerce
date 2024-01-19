@@ -1,35 +1,38 @@
 import React, { useState, useEffect } from "react";
 import data from "../../public/data/data.json";
-import CartModal from '../componentes/CartModal';
 
 export default function Catalog() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setProducts(data);
   }, []);
 
   const handleAddToCart = (product, quantity) => {
-    const updatedCart = [...cart, { ...product, quantity }];
-    setCart(updatedCart);
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      // If the product is already in the cart, update the quantity
+      const updatedCart = cart.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + quantity }
+          : item
+      );
+      setCart(updatedCart);
+    } else {
+      // If the product is not in the cart, add it
+      setCart([...cart, { ...product, quantity }]);
+    }
   };
 
   const handleAddToWishlist = (product) => {
-    const updatedWishlist = [...wishlist, { ...product }];
-    setWishlist(updatedWishlist);
-  };
+    const isProductInWishlist = wishlist.some((item) => item.id === product.id);
 
-  const openModal = (product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+    if (!isProductInWishlist) {
+      setWishlist([...wishlist, { ...product }]);
+    }
   };
 
   return (
@@ -86,20 +89,12 @@ export default function Catalog() {
                       </svg>
                     </button>
                   </div>
-                  <button onClick={() => openModal(product)}>Ver Detalles</button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      {selectedProduct && (
-        <CartModal
-          isOpen={isModalOpen}
-          closeModal={closeModal}
-          product={selectedProduct}
-        />
-      )}
     </div>
   );
 }
