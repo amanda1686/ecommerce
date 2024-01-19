@@ -5,6 +5,7 @@
     "price": 2.85,
     "category": "frutos",
     "img": "../../public/img/coco-rallado.jpg",
+    "img": "../../public/img/coco-rallado.jpg",
     "description": "Coco rallado de alta calidad para usar en repostería o como complemento en diversos platillos."
   },
   {
@@ -20,6 +21,7 @@
     "name": "Harina de arroz",
     "price": 3.4,
     "category": "celiaco",
+    "img": "../../public/img/harina-de-arroz.jpg",
     "img": "../../public/img/harina-de-arroz.jpg",
     "description": "Harina de arroz de textura suave, perfecta para preparar alimentos sin gluten."
   },
@@ -61,6 +63,7 @@
     "price": 1.3,
     "category": "lacteos",
     "img": "../../public/img/leche-de-almendras.jpg",
+    "img": "../../public/img/leche-de-almendras.jpg",
     "description": "Leche de almendras naturalmente sin lactosa, perfecta para una dieta láctea alternativa."
   },
   {
@@ -68,6 +71,7 @@
     "name": "Leche de arroz",
     "price": 2.3,
     "category": "lacteos",
+    "img": "../../public/img/leche-de-arroz.jpeg",
     "img": "../../public/img/leche-de-arroz.jpeg",
     "description": "Leche de arroz suave y nutritiva, adecuada para quienes buscan opciones lácteas sin gluten."
   },
@@ -77,6 +81,7 @@
     "price": 2.3,
     "category": "lacteos",
     "img": "../../public/img/leche-de-coco.jpg",
+    "img": "../../public/img/leche-de-coco.jpg",
     "description": "Leche de coco cremosa, añade un toque tropical a tus recetas y bebidas favoritas."
   },
   {
@@ -84,6 +89,7 @@
     "name": "Leche de soja",
     "price": 1.7,
     "category": "lacteos",
+    "img": "../../public/img/leche-de-soja.jpg",
     "img": "../../public/img/leche-de-soja.jpg",
     "description": "Leche de soja rica en proteínas, una opción versátil para aquellos que evitan la lactosa."
   },
@@ -93,6 +99,7 @@
     "price": 4.1,
     "category": "frutos",
     "img": "../../public/img/semillas-de-calabaza.jpg",
+    "img": "../../public/img/semillas-de-calabaza.jpg",
     "description": "Semillas de calabaza crujientes y llenas de nutrientes, perfectas como snack o ingrediente en ensaladas."
   },
   {
@@ -100,6 +107,7 @@
     "name": "Semillas de Chía",
     "price": 4.5,
     "category": "frutos",
+    "img": "../../public/img/semillas-de-chia.jpg",
     "img": "../../public/img/semillas-de-chia.jpg",
     "description": "Semillas de chía, fuente de omega-3 y fibra, ideales para agregar a batidos, yogures y más."
   },
@@ -109,6 +117,7 @@
     "price": 4.25,
     "category": "frutos",
     "img": "../../public/img/semillas-de-girasol.jpg",
+    "img": "../../public/img/semillas-de-girasol.jpg",
     "description": "Semillas de girasol tostadas y deliciosas, una opción saludable para picar entre comidas."
   },
   {
@@ -117,6 +126,7 @@
     "price": 6.2,
     "category": "frutos",
     "img": "../../public/img/semillas-de-linaza.jpg",
+    "img": "../../public/img/semillas-de-linaza.jpg",
     "description": "Semillas de linaza ricas en ácidos grasos omega-3, añade a tu dieta un impulso nutricional."
   },
   {
@@ -124,6 +134,7 @@
     "name": "Avena",
     "price": 2.3,
     "category": "frutos",
+    "img": "../../public/img/avena.jpg",
     "img": "../../public/img/avena.jpg",
     "description": "Avena integral, fuente de fibra y energía, perfecta para el desayuno o como ingrediente versátil en la cocina."
   }
