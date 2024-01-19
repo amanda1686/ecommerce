@@ -1,4 +1,6 @@
 import React from 'react'
+import Signin from '../componentes/Signin';
+
 
 function SignUpForm() {
     return (

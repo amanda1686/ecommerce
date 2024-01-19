@@ -1,9 +1,14 @@
 import React from 'react'
-import { AiFillFacebook, AiFillGoogleCircle, AiFillLinkedin} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import SignUp from '../componentes/SignUp';
 
 function SignUpForm() {
+  const redirectToFacebook = () => {
+    window.location.href = 'https://www.facebook.com/';
+  };
+  const redirectToGoogle = () => {
+    window.location.href = 'https://www.google.es/';
+  };
     return (
       <form>
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-20">
@@ -17,7 +22,7 @@ function SignUpForm() {
                   Nombre
                 </label>
                 <input
-                  placeholder="JohnDoe"
+                  placeholder="Nombre"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                   id="username"
                   type="text"
@@ -25,11 +30,11 @@ function SignUpForm() {
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Correo Electrónico
+                  Correo
                 </label>
                 <input
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                  placeholder="tu-correo@example.com"
+                  placeholder="correo@example.com"
                   id="email"
                   type="email"
                 />
@@ -37,7 +42,7 @@ function SignUpForm() {
 
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Confirm password
+                  Contraseña
                 </label>
                 <input
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
@@ -55,7 +60,7 @@ function SignUpForm() {
                     id="terms"
                   />
                 </div>
-                <div className="ml-3 text-sm">
+                <div className="flex items-center justify-center  ml-3 text-sm">
                   <label className="font-light text-gray-500 text-gray-300">
                     Acepto los{' '}
                     <a
@@ -83,12 +88,18 @@ function SignUpForm() {
                         <hr class="border-gray-300 border-1 w-full rounded-md"/>
                     </div>
               <div class="flex mt-7 justify-center w-full">
-                        <button class="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                        <button
+                        type='button' 
+                        class="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"  
+                        onClick={redirectToFacebook}>
                             
                             Facebook 
                         </button> 
         
-                        <button class="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                        <button 
+                        type='button'
+                        class="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
+                        onClick={redirectToGoogle}>
                             
                             Google
                         </button>
@@ -97,8 +108,8 @@ function SignUpForm() {
                     <div class="mt-7">
                         <div class="flex justify-center items-center">
                             <label class="mr-2" >¿Ya tienes una cuenta?</label>
-                            <a href="#" class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
-                                Iniciar sesion
+                            <a href="/Home" class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                <p><span><Link to="./SignUp">Iniciar sesion </Link></span></p>
                             </a>
                         </div>
                     </div>
