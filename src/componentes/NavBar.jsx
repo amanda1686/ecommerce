@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ghandslogo from "../assets/imagenes/logo/ghandslogo.svg";
 import loginicon from "../assets/imagenes/logo/loginicon.png";
 import shoppingcart from "../../public/img/logo/shopping-cart.png";
-import { CartProvider } from "../context/cartContext"; // Asegúrate de tener esta importación
+// import { CartProvider } from "../context/cartContext"; // Asegúrate de tener esta importación
 
 const navigation = [
   { name: "Home", href: "/Home", current: true },
@@ -19,7 +19,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { cartItems } = useContext(CartProvider); // Obtiene los datos del carrito desde el contexto - DZ
+  // const { cartItems } = useContext(CartProvider); // Obtiene los datos del carrito desde el contexto - DZ
 
   return (
     <Disclosure as="nav" className="color">
@@ -28,19 +28,17 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex h-24 items-center justify-between">
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <div>
+                {/* <div>
                   <Link to="/Cart">
                     {" "}
-                    {/* Agrega el enlace al carrito - DZ */}
                     <button>
                       <img src={shoppingcart} alt="" className="h-8 w-8 mr-4" />
                       <span className="bg-red-500 text-white rounded-full p-1 text-xs absolute top-0 right-0">
                         {cartItems.length}{" "}
-                        {/* Muestra la cantidad de productos en el carrito - DZ */}
                       </span>
                     </button>
                   </Link>
-                </div>
+                </div> */}
 
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">

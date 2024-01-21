@@ -7,16 +7,16 @@ import Login from "./pages/Login";
 import Productounico from "./pages/Productdetails";
 import Aboutus from "./pages/Aboutus";
 import Home from "./pages/Home";
-import CartPage from "./pages/CartPage"; // DZ
+// import CartPage from "./pages/CartPage"; // DZ
 import Footer from "./componentes/Footer";
-import { CartProvider } from "./context/cartContext"; // DZ
+// import { CartProvider } from "./context/cartContext"; // DZ
 
 function App() {
   return (
     <BrowserRouter>
-      <CartProvider>
+      {/* <CartProvider>
         {" "}
-        {/* Agrega el CartProvider aquí */}
+        Agrega el CartProvider aquí */}
         <Navbar />
         <Routes>
           <Route path="/Product" element={<Product />} />
@@ -24,10 +24,10 @@ function App() {
           <Route path="/Productdetails" element={<Productounico />} />
           <Route path="/Aboutus" element={<Aboutus />} />
           <Route path="/Home" element={<Home />} />
-          <Route path='/Cart' element={<CartPage />} />  {/*  ruta para CartPage DZ */}
+          {/* <Route path='/Cart' element={<CartPage />} />   ruta para CartPage DZ */}
         </Routes>
         <Footer />
-      </CartProvider>
+      {/* </CartProvider> */}
     </BrowserRouter>
   );
 }
