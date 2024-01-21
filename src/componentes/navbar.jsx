@@ -1,11 +1,11 @@
-import { Fragment } from "react";
+import React, { useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import CartContext from "../context/CartContext"; // Importa el contexto del carrito - DZ
 import ghandslogo from "../assets/imagenes/logo/ghandslogo.svg";
 import loginicon from "../assets/imagenes/logo/loginicon.png";
 import shoppingcart from "../../public/img/logo/shopping-cart.png";
+import { CartProvider } from "../context/cartContext"; // Asegúrate de tener esta importación
 
 const navigation = [
   { name: "Home", href: "/Home", current: true },
@@ -19,7 +19,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { cartItems } = useContext(CartContext); // Obtiene los datos del carrito desde el contexto - DZ
+  const { cartItems } = useContext(CartProvider); // Obtiene los datos del carrito desde el contexto - DZ
 
   return (
     <Disclosure as="nav" className="color">

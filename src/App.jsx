@@ -9,7 +9,7 @@ import Aboutus from "./pages/Aboutus";
 import Home from "./pages/Home";
 import CartPage from "./pages/CartPage"; // DZ
 import Footer from "./componentes/Footer";
-import { CartProvider } from "./context/CartContext"; // DZ
+import { CartProvider } from "./context/cartContext"; // DZ
 
 function App() {
   return (

@@ -1,4 +1,6 @@
-import React from "react";
+import { CartContext } from "../context/cartContext"; // Ajusta la ruta según tu estructura de archivos
+import { useContext } from 'react';
+
 
 const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
   const calculateTotal = () => {
