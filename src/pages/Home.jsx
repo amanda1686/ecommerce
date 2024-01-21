@@ -2,7 +2,6 @@ import React from 'react'
 import Sliderproducts from '../componentes/slider'
 import Carousel from '../componentes/Carousel';
 import Servicescard from '../componentes/Servicescard'
-import Footer from '../componentes/Footer';
 import Img from '../../public/img/slider1.jpg'
 import Img2 from '../../public/img/slider2.jpg'
 import Img3 from '../../public/img/slider3.jpg'
@@ -34,7 +33,6 @@ export default function Home() {
         <div className="">
             <Servicescard />
         </div>
-        <Footer/>
     </div>
   )
 }
