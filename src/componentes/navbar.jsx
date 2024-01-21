@@ -1,31 +1,47 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
-import ghandslogo from '../assets/imagenes/logo/ghandslogo.svg'
-import loginicon from '../assets/imagenes/logo/loginicon.png'
-import shoppingcart from '../../public/img/logo/shopping-cart.png'
-
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import CartContext from "../context/CartContext"; // Importa el contexto del carrito - DZ
+import ghandslogo from "../assets/imagenes/logo/ghandslogo.svg";
+import loginicon from "../assets/imagenes/logo/loginicon.png";
+import shoppingcart from "../../public/img/logo/shopping-cart.png";
 
 const navigation = [
-  { name: 'Home', href: '/Home', current: true },
-  { name: 'Product', href: '/Product', current: false },
-  { name: 'Login', href: '/Login', current: false },
-  { name: 'About us', href: '/Aboutus', current: false },
-]
+  { name: "Home", href: "/Home", current: true },
+  { name: "Product", href: "/Product", current: false },
+  { name: "Login", href: "/Login", current: false },
+  { name: "About us", href: "/Aboutus", current: false },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const { cartItems } = useContext(CartContext); // Obtiene los datos del carrito desde el contexto - DZ
+
   return (
     <Disclosure as="nav" className="color">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex h-24 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div>
+                  <Link to="/Cart">
+                    {" "}
+                    {/* Agrega el enlace al carrito - DZ */}
+                    <button>
+                      <img src={shoppingcart} alt="" className="h-8 w-8 mr-4" />
+                      <span className="bg-red-500 text-white rounded-full p-1 text-xs absolute top-0 right-0">
+                        {cartItems.length}{" "}
+                        {/* Muestra la cantidad de productos en el carrito - DZ */}
+                      </span>
+                    </button>
+                  </Link>
+                </div>
+
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
@@ -40,28 +56,29 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <a href="/Home">
-                  <img
-                    className="h-16 w-auto"
-                    src={ghandslogo}
-                    alt="Your Company"
-                  />
+                    <img
+                      className="h-16 w-auto"
+                      src={ghandslogo}
+                      alt="Your Company"
+                    />
                   </a>
                 </div>
                 <div className="hidden sm:ml-4 sm:block mt-4">
                   <div className="flex space-x-10 ms-80">
                     {navigation.map((item) => (
-                      <Link 
-                      to={item.href}
+                      <Link
+                        to={item.href}
                         key={item.name}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "rounded-md px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </Link>
-                      
                     ))}
                   </div>
                 </div>
@@ -69,7 +86,7 @@ export default function Navbar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div>
                   <button>
-                    <img src={shoppingcart} alt=""  className='h-8 w-8 mr-4'/>
+                    <img src={shoppingcart} alt="" className="h-8 w-8 mr-4" />
                   </button>
                 </div>
                 <Menu as="div" className="relative ml-3">
@@ -98,7 +115,10 @@ export default function Navbar() {
                         {({ active }) => (
                           <a
                             href="/Login"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Login
                           </a>
@@ -108,7 +128,10 @@ export default function Navbar() {
                         {({ active }) => (
                           <a
                             href="/Signin"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Sign In
                           </a>
@@ -118,7 +141,10 @@ export default function Navbar() {
                         {({ active }) => (
                           <a
                             href="/Home"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Sign out
                           </a>
@@ -139,10 +165,12 @@ export default function Navbar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -152,6 +180,5 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
-
