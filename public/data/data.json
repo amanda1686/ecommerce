@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Harina de almendra",
     "price": 7.6,
-    "category": "celiaco",
+    "category":  "celiaco",
     "img": "../../public/img/leche-de-almendras.jpg",
     "description": "Harina de almendra finamente molida, ideal para personas con intolerancia al gluten."
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "name": "Harina de avena",
     "price": 5.3,
-    "category": "celiaco",
+    "category":  "celiaco",
     "img": "../../public/img/harina-de-avena.jpg",
     "description": "Harina de avena integral, rica en fibra y versátil para diversas recetas sin gluten."
   },
@@ -52,7 +52,7 @@
     "name": "Harina de trigo Sarraceno",
     "price": 2.3,
     "category": "celiaco",
-    "img": "../../public/img/images/Harina-de-Trigo-Sarraceno.webp",
+    "img": "../../public/img/Harina-de-Trigo-Sarraceno.webp",
     "description": "Harina de trigo sarraceno, alternativa sin gluten con un perfil nutricional único."
   },
   {

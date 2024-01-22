@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../componentes/Logo'
 import ContactForm from './ContactForm';
 import '../Index.css';
+import '../index.css';
 
 const Footer = () => {
   return (
@@ -190,3 +191,4 @@ const Footer = () => {
   )
 }
 export default Footer
+
