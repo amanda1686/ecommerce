@@ -1,24 +1,26 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
-import ghandslogo from '../assets/imagenes/logo/ghandslogo.svg'
-import loginicon from '../assets/imagenes/logo/loginicon.png'
-import shoppingcart from '../../public/img/logo/shopping-cart.png'
-
+import React, { Fragment, useState } from 'react';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
+import shoppingcart from '../../public/img/logo/shopping-cart.png';
+import ghandslogo from '../../public/img/logo/ghandslogo.svg'
+import loginicon from '../../public/img/logo/loginicon.png'
+import xicon from '../../public/img/logo/xicon.png'
 
 const navigation = [
   { name: 'Home', href: '/Home', current: true },
   { name: 'Product', href: '/Product', current: false },
   { name: 'Login', href: '/Login', current: false },
   { name: 'About us', href: '/Aboutus', current: false },
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <Disclosure as="nav" className="color">
       {({ open }) => (
@@ -40,18 +42,18 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <a href="/Home">
-                  <img
-                    className="h-16 w-auto"
-                    src={ghandslogo}
-                    alt="Your Company"
-                  />
+                    <img
+                      className="h-16 w-auto"
+                      src={ghandslogo}
+                      alt="Your Company"
+                    />
                   </a>
                 </div>
                 <div className="hidden sm:ml-4 sm:block mt-4">
                   <div className="flex space-x-10 ms-80">
                     {navigation.map((item) => (
                       <Link 
-                      to={item.href}
+                        to={item.href}
                         key={item.name}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -61,14 +63,13 @@ export default function Navbar() {
                       >
                         {item.name}
                       </Link>
-                      
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div>
-                  <button>
+                  <button onClick={() => setSidebarOpen(true)} className="focus:outline-none">
                     <img src={shoppingcart} alt=""  className='h-8 w-8 mr-4'/>
                   </button>
                 </div>
@@ -149,9 +150,20 @@ export default function Navbar() {
               ))}
             </div>
           </Disclosure.Panel>
+
+          {/* Barra lateral del carrito */}
+          {isSidebarOpen && (
+            <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-200 p-4">
+              <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
+              {/* Agrega aquí contenido adicional, como resumen del carrito */}
+              <button onClick={() => setSidebarOpen(false)} className="absolute top-4 right-4 text-black bg-blue-500 hover:bg-amber-500">
+              <img src={xicon} alt="" />
+              </button>
+            </div>
+          )}
         </>
       )}
     </Disclosure>
-  )
+  );
 }
 

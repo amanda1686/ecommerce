@@ -1,82 +1,55 @@
-// import { CartContext } from "../context/cartContext"; // Ajusta la ruta según tu estructura de archivos
-// import { useContext } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
+const CartPage = ({ cart, removeFromCart }) => {
+  // Estado para controlar si la barra lateral está abierta o cerrada
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-// const Cart = ({ cartItems, removeFromCart, updateQuantity }) => {
-//   const calculateTotal = () => {
-//     return cartItems.reduce(
-//       (total, item) => total + item.quantity * item.price,
-//       0
-//     );
-//   };
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-semibold mb-4">Shopping Cart</h1>
 
-//   return (
-//     <div className="bg-white">
-//       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-//         <h2 className="text-center text-black text-4xl font-bold mb-8">
-//           Carrito de Compras
-//         </h2>
+      {/* Botón que abre la barra lateral */}
+      <button onClick={() => setSidebarOpen(true)} className="focus:outline-none">
+        <img src={shoppingcart} alt="" className='h-8 w-8 mr-4'/>
+      </button>
 
-//         {cartItems.length === 0 ? (
-//           <p className="text-center text-gray-600">El carrito está vacío.</p>
-//         ) : (
-//           <div>
-//             {cartItems.map((item) => (
-//               <div
-//                 key={item.id}
-//                 className="flex items-center justify-between mb-4"
-//               >
-//                 <div className="flex items-center">
-//                   <img
-//                     src={item.img}
-//                     alt={item.name}
-//                     className="h-12 w-12 object-cover rounded mr-4"
-//                   />
-//                   <div>
-//                     <p className="text-md font-bold text-gray-800">
-//                       {item.name}
-//                     </p>
-//                     <p className="text-sm text-gray-600">
-//                       {item.quantity} x {item.price}.€
-//                     </p>
-//                   </div>
-//                 </div>
-//                 <div className="flex items-center">
-//                   <button
-//                     className="text-red-600 hover:underline mr-4"
-//                     onClick={() => removeFromCart(item.id)}
-//                   >
-//                     Eliminar
-//                   </button>
-//                   <div className="flex items-center">
-//                     <button
-//                       className="text-gray-700 hover:underline"
-//                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-//                     >
-//                       -
-//                     </button>
-//                     <p className="mx-2">{item.quantity}</p>
-//                     <button
-//                       className="text-gray-700 hover:underline"
-//                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-//                     >
-//                       +
-//                     </button>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
+      {/* Resto del contenido del carrito */}
+      {cart.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <div>
+          {cart.map((product, index) => (
+            <div key={index} className="bg-white p-4 shadow-md rounded-md mb-4">
+              {/* ... (contenido del producto) */}
+            </div>
+          ))}
 
-//             <div className="mt-8">
-//               <p className="text-lg font-bold text-gray-800">
-//                 Total: {calculateTotal().toFixed(2)}€
-//               </p>
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
+          <div className="mt-4">
+            <p className="text-xl font-semibold">
+              Total: ${cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)}
+            </p>
+            {/* Agrega el botón de pago u otras acciones aquí */}
+          </div>
+        </div>
+      )}
 
-// export default Cart;
+      {/* Barra lateral */}
+      {isSidebarOpen && (
+        <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-200 p-4">
+          {/* Contenido de la barra lateral, por ejemplo, resumen del carrito */}
+          <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
+          {/* Agrega aquí contenido adicional, como resumen del carrito */}
+          
+          {/* Botón que cierra la barra lateral */}
+          <button onClick={() => setSidebarOpen(false)} className="bg-red-500 text-white px-4 py-2 rounded-md mt-4">
+            Close Sidebar
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default CartPage;
+
