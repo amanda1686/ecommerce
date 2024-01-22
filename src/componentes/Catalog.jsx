@@ -46,7 +46,7 @@ function Catalog() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl text-center font-semibold mb-4">Products</h1>
+      <h1 className="text-3xl text-center font-semibold mb-4">Productos</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {currentProducts.map((product) => (
           <div key={product.id} className="bg-white p-4 shadow-md rounded-md">
@@ -57,7 +57,7 @@ function Catalog() {
                 className="w-full h-auto object-cover mb-2 cursor-pointer"
               />
               <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-700">${product.price.toFixed(2)}</p>
+              <p className="text-gray-700">€{product.price.toFixed(2)}</p>
             </Link>
             <div className="mt-2 flex items-center space-x-4">
               <input
@@ -70,7 +70,7 @@ function Catalog() {
                 onClick={() => addToCart(product)}
                 className="bg-sky-950 text-white px-4 py-2 rounded-md hover:bg-amber-500"
               >
-                Add to Cart
+                Añadir
               </button>
             </div>
           </div>

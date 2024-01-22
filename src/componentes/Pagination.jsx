@@ -17,25 +17,25 @@ export default function Pagination({ itemsPerPage, totalItems, currentPage, pagi
           className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
         >
           <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-          Previous
+          Anterior
         </button>
         <button
           onClick={() => paginate(currentPage + 1)}
           disabled={currentPage === Math.ceil(totalItems / itemsPerPage)}
           className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
         >
-          Next
+          Siguiente
           <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
         </button>
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">{currentPage * itemsPerPage - itemsPerPage + 1}</span> to{' '}
+            Mostrando <span className="font-medium">{currentPage * itemsPerPage - itemsPerPage + 1}</span> a{' '}
             <span className="font-medium">
               {Math.min(currentPage * itemsPerPage, totalItems)}
             </span>{' '}
-            of <span className="font-medium">{totalItems}</span> results
+            de <span className="font-medium">{totalItems}</span> resultados
           </p>
         </div>
         <div>
