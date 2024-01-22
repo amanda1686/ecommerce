@@ -1,14 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { FcSearch } from "react-icons/fc";
+import { FcSearch } from 'react-icons/fc';
 
 const SearchBar = () => {
-    const [searchResults, setSearchResults] = useState([]);
-    const [searchVisible, setSearchVisible] = useState(false);
-    const searchInputRef = useRef(null);
-    
-    const toggleSearch = () => {
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchVisible, setSearchVisible] = useState(false);
+  const searchInputRef = useRef(null);
+
+  const toggleSearch = () => {
     setSearchVisible(!searchVisible);
-   
   };
 
   const searchProducts = async () => {
@@ -18,16 +17,25 @@ const SearchBar = () => {
     const productos = await response.json();
     const resultados = productos.filter(producto => producto.name.toLowerCase().includes(searchTerm));
     setSearchResults(resultados);
- // esto pegue
+
     if (!searchVisible) {
       setSearchVisible(true);
     }
-    // hasta aaqui
-};
+  };
 
-const displaySearchResults = () => {
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      searchProducts();
+    }
+  };
+
+  const handleSearchIconClick = () => {
+    searchProducts();
+  };
+
+  const displaySearchResults = () => {
     return searchResults.map(result => (
-        <div key={result.id} className="search-result">
+      <div key={result.id} className="search-result">
         <div className="search-img-container">
           <img className="search-img" src={result.img} alt={result.name} />
         </div>
@@ -35,26 +43,26 @@ const displaySearchResults = () => {
         <div className="search-price">Precio: ${result.price}</div>
       </div>
     ));
-};
+  };
 
-return (
-    <div  className="flex items-center space-x-4">
+  return (
+    <div className={`container ${searchVisible ? 'active' : ''}`}>
       <input
         type="text"
         ref={searchInputRef}
         onChange={searchProducts}
-        placeholder="Search..."
-        className="border p-2 w-24 ml-7 h-6 hidden sm:block "
+        onKeyDown={handleKeyDown}
+        placeholder="Buscar"
+        className="outline-none box-border h-10 p-2 text-black flex-grow text-base ml-2 transition-all duration-700"
       />
-        <button onClick={toggleSearch} className="text-white px-4 py-2 rounded">
-          <FcSearch size={30} />
-         
-        </button>
-      
-   
-   
+      <div
+        className="btn text-white px-4 py-2 rounded transition-all duration-0.5s"
+        onClick={toggleSearch}
+      >
+        <FcSearch size={30} onClick={handleSearchIconClick} />
+      </div>
       {searchVisible && (
-        <div id="search-results" className="show-search">
+        <div className="search-results">
           {displaySearchResults()}
         </div>
       )}

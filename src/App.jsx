@@ -9,6 +9,7 @@ import Aboutus from './pages/Aboutus'
 import Home from './pages/Home'
 import Footer from './componentes/Footer'
 import { CartProvider } from './context/CartContext';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
     <Navbar />
-     
+   
    
       <Routes>
         <Route path='/Product' element={<Product />} />
@@ -29,5 +30,6 @@ function App() {
     </BrowserRouter>
   )
 }
+
 
 export default App
