@@ -7,10 +7,11 @@ const CartPage = ({ cart, removeFromCart }) => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">Shopping Cart</h1>
+      <h1 className="text-3xl font-semibold mb-4">Cart</h1>
 
       {/* Botón que abre la barra lateral */}
       <button onClick={() => setSidebarOpen(true)} className="focus:outline-none">
+        {/* Importa la imagen correcta o utiliza otro elemento para representar el carrito */}
         <img src={shoppingcart} alt="" className='h-8 w-8 mr-4'/>
       </button>
 
@@ -22,6 +23,8 @@ const CartPage = ({ cart, removeFromCart }) => {
           {cart.map((product, index) => (
             <div key={index} className="bg-white p-4 shadow-md rounded-md mb-4">
               {/* ... (contenido del producto) */}
+              <p>{product.name} - Quantity: {product.quantity} - Price: ${product.price.toFixed(2)}</p>
+              <button onClick={() => removeFromCart(product.id)}>Remove from Cart</button>
             </div>
           ))}
 
