@@ -57,7 +57,7 @@ function Catalog() {
                 className="w-full h-auto object-cover mb-2 cursor-pointer"
               />
               <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-700">${product.price.toFixed(2)}</p>
+              <p className="text-gray-700">{product.price.toFixed(2)} €</p>
             </Link>
             <div className="mt-2 flex items-center space-x-4">
               <input
