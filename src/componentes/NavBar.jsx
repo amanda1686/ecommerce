@@ -1,23 +1,3 @@
-<<<<<<< Updated upstream
-import React, { Fragment, useState } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
-import shoppingcart from '../../public/img/logo/shopping-cart.png';
-import ghandslogo from '../../public/img/logo/ghandslogo.svg'
-import loginicon from '../../public/img/logo/loginicon.png'
-import xicon from '../../public/img/logo/xicon.png'
-
-const navigation = [
-  { name: 'Home', href: '/Home', current: true },
-  { name: 'Product', href: '/Product', current: false },
-  { name: 'Login', href: '/Login', current: false },
-  { name: 'About us', href: '/Aboutus', current: false },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-=======
 import React, { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -36,7 +16,6 @@ const navigation = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
->>>>>>> Stashed changes
 }
 
 export default function Navbar() {
@@ -73,11 +52,7 @@ export default function Navbar() {
                 <div className="hidden sm:ml-4 sm:block mt-4">
                   <div className="flex space-x-10 ms-80">
                     {navigation.map((item) => (
-<<<<<<< Updated upstream
-                      <Link 
-=======
                       <Link
->>>>>>> Stashed changes
                         to={item.href}
                         key={item.name}
                         className={classNames(
