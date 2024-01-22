@@ -42,10 +42,10 @@ export default function Servicescard() {
             <img
               src={imageUrl}
               alt={`Imagen ${index + 1}`}
-              className="rounded-lg h-[300px]"
+              className="rounded-lg h-[300px] opacity-1 group-hover:opacity-50"
             />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-              <p className="text-white text-lg font-semibold transition duration-300 opacity-0 group-hover:opacity-100">
+              <p className="text-[#032940] text-lg font-semibold transition duration-300 opacity-0 group-hover:opacity-100">
                 Más Información
               </p>
             </div>
