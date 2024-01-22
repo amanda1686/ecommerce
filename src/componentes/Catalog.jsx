@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from './Pagination';
 import { useCart } from '../context/CartContext';
+import SearchResults from './SearchResults';
 
 function Catalog() {
   const [products, setProducts] = useState([]);
@@ -83,6 +84,7 @@ function Catalog() {
         paginate={paginate}
       />
     </div>
+    
   );
 }
 

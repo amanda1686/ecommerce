@@ -1,66 +1,69 @@
+// SearchBar.js
 import React, { useState, useRef } from 'react';
-import { FcSearch } from "react-icons/fc";
+import { FcSearch } from 'react-icons/fc';
+import Modal from 'react-modal';
+import SearchResults from './SearchResults';
 
 const SearchBar = () => {
-    const [searchResults, setSearchResults] = useState([]);
-    const [searchVisible, setSearchVisible] = useState(false);
-    const searchInputRef = useRef(null);
-    
-    const toggleSearch = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const searchInputRef = useRef(null);
+
+  const toggleSearch = () => {
     setSearchVisible(!searchVisible);
-   
+  };
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
 
   const searchProducts = async () => {
-    const searchTerm = searchInputRef.current.value.toLowerCase();
-    // Aquí debes ajustar la ruta correcta para obtener tu archivo JSON
-    const response = await fetch('/public/data/data.json');
-    const productos = await response.json();
-    const resultados = productos.filter(producto => producto.name.toLowerCase().includes(searchTerm));
-    setSearchResults(resultados);
- // esto pegue
-    if (!searchVisible) {
-      setSearchVisible(true);
+    const term = searchInputRef.current.value.toLowerCase();
+    setSearchTerm(term);
+  };
+
+  const handleEnterPress = (e) => {
+    if (e.key === 'Enter') {
+      // Realiza la búsqueda aquí con searchTerm
+      const searchTerm = searchInputRef.current.value.toLowerCase();
+      // Aquí debes ajustar la ruta correcta para obtener tu archivo JSON
+      fetch('/public/data/data.json')
+        .then((response) => response.json())
+        .then((productos) => {
+          const resultados = productos.filter((producto) => producto.name.toLowerCase().includes(searchTerm));
+          setSearchResults(resultados);
+          setSearchVisible(true);
+          openModal();
+        });
     }
-    // hasta aaqui
-};
+  };
 
-const displaySearchResults = () => {
-    return searchResults.map(result => (
-        <div key={result.id} className="search-result">
-        <div className="search-img-container">
-          <img className="search-img" src={result.img} alt={result.name} />
-        </div>
-        <div className="search-name">{result.name}</div>
-        <div className="search-price">Precio: ${result.price}</div>
-      </div>
-    ));
-};
-
-return (
-    <div  className="flex items-center space-x-4">
+  return (
+    <div className="flex items-center space-x-4">
       <input
         type="text"
         ref={searchInputRef}
         onChange={searchProducts}
+        onKeyDown={handleEnterPress}
         placeholder="Search..."
         className="border p-2 w-24 ml-7 h-6 hidden sm:block "
       />
-        <button onClick={toggleSearch} className="text-white px-4 py-2 rounded">
-          <FcSearch size={30} />
-         
-        </button>
-      
-   
-   
-      {searchVisible && (
-        <div id="search-results" className="show-search">
-          {displaySearchResults()}
-        </div>
-      )}
+      <button onClick={toggleSearch} className="text-white px-4 py-2 rounded">
+        <FcSearch size={30} />
+      </button>
+
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <SearchResults results={searchResults} />
+        <button onClick={closeModal}>Close Modal</button>
+      </Modal>
     </div>
   );
 };
 
 export default SearchBar;
-
