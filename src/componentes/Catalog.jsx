@@ -6,10 +6,11 @@ import { useCart } from '../context/CartContext';
 function Catalog() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [quantity, setQuantity] = useState(1);
+  const [quantities, setQuantities] = useState({}); // Estado para las cantidades de cada producto
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
   const [isCartVisible, setIsCartVisible] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('.../../data/data.json');
@@ -26,14 +27,15 @@ function Catalog() {
     if (existingProduct) {
       setCart(
         cart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+          item.id === product.id ? { ...item, quantity: item.quantity + quantities[product.id] } : item
         )
       );
     } else {
-      setCart([...cart, { ...product, quantity }]);
+      setCart([...cart, { ...product, quantity: quantities[product.id] }]);
     }
 
-    setQuantity(1);
+    // Restablecer la cantidad solo para el producto actual
+    setQuantities((prevQuantities) => ({ ...prevQuantities, [product.id]: 1 }));
   };
 
   const indexOfLastProduct = currentPage * itemsPerPage;
@@ -46,7 +48,7 @@ function Catalog() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl text-center font-semibold mb-4">Productos</h1>
+      <h1 className="text-3xl text-center font-semibold mb-4">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {currentProducts.map((product) => (
           <div key={product.id} className="bg-white p-4 shadow-md rounded-md">
@@ -57,20 +59,20 @@ function Catalog() {
                 className="w-full h-auto object-cover mb-2 cursor-pointer"
               />
               <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-700">€{product.price.toFixed(2)}</p>
+              <p className="text-gray-700">${product.price.toFixed(2)}</p>
             </Link>
             <div className="mt-2 flex items-center space-x-4">
               <input
                 type="number"
-                value={quantity}
-                onChange={(e) => setQuantity(parseInt(e.target.value, 10) || 1)}
+                value={quantities[product.id] || 1}
+                onChange={(e) => setQuantities((prevQuantities) => ({ ...prevQuantities, [product.id]: parseInt(e.target.value, 10) || 1 }))}
                 className="border border-gray-300 px-2 py-1 w-16"
               />
               <button
                 onClick={() => addToCart(product)}
                 className="bg-sky-950 text-white px-4 py-2 rounded-md hover:bg-amber-500"
               >
-                Añadir
+                Add to Cart
               </button>
             </div>
           </div>
@@ -87,13 +89,6 @@ function Catalog() {
 }
 
 export default Catalog;
-
-
-
-
-
-
-
 
 
 
