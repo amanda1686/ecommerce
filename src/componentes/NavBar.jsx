@@ -71,13 +71,8 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div>
-<<<<<<< Updated upstream
-                  <button onClick={() => setSidebarOpen(true)} className="focus:outline-none">
-                    <img src={shoppingcart} alt=""  className='h-8 w-8 mr-4'/>
-=======
                   <button>
                     <img src={shoppingcart} alt="" className="h-8 w-8 mr-4" />
->>>>>>> Stashed changes
                   </button>
                 </div>
                 <Cart /> {/* Integración del componente Cart */}
