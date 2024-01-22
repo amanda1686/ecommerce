@@ -10,6 +10,7 @@ import loginicon from '../../public/img/logo/loginicon.png';
 import xicon from '../../public/img/logo/xicon.png';
 import SearchBar from './SearchBar';
 
+
 const navigation = [
   { name: 'Home', href: '/Home', current: true },
   { name: 'Product', href: '/Product', current: false },
@@ -80,6 +81,7 @@ export default function Navbar() {
                 
                 {/* BUSCADOR DE LUPA */}
                 <SearchBar />
+               
 
                 <Menu as="div" className="relative ml-3">
                   <div>
