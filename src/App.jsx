@@ -18,11 +18,11 @@ function App() {
      
    
       <Routes>
+      <Route path='/' element={<Home />} index />
         <Route path='/Product' element={<Product />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Productdetails' element={<Productounico />} />
         <Route path='/Aboutus' element={<Aboutus />} />
-        <Route path='/Home' element={<Home />} />
       </Routes>
       <Footer />
     </BrowserRouter>
