@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 const CartPage = () => {
   const { cart, removeFromCart, clearCart } = useCart();
+  console.log(cart);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
