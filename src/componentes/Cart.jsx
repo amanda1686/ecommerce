@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const CartPage = ({ cart, removeFromCart }) => {
-  // Estado para controlar si la barra lateral está abierta o cerrada
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -21,7 +19,11 @@ const CartPage = ({ cart, removeFromCart }) => {
         <div>
           {cart.map((product, index) => (
             <div key={index} className="bg-white p-4 shadow-md rounded-md mb-4">
-              {/* ... (contenido del producto) */}
+              {/* Muestra detalles del producto */}
+              <p>{product.name} - Cantidad: {product.quantity}</p>
+              {/* ... (otros detalles del producto) */}
+              {/* Agrega el botón para quitar el producto del carrito */}
+              <button onClick={() => removeFromCart(index)}>Quitar del carrito</button>
             </div>
           ))}
 
@@ -52,4 +54,3 @@ const CartPage = ({ cart, removeFromCart }) => {
 };
 
 export default CartPage;
-

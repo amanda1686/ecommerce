@@ -6,10 +6,11 @@ import { useCart } from '../context/CartContext';
 function Catalog() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [quantity, setQuantity] = useState(1);
+  const [quantities, setQuantities] = useState({}); // Estado para las cantidades de cada producto
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
   const [isCartVisible, setIsCartVisible] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('.../../data/data.json');
@@ -26,14 +27,15 @@ function Catalog() {
     if (existingProduct) {
       setCart(
         cart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+          item.id === product.id ? { ...item, quantity: item.quantity + quantities[product.id] } : item
         )
       );
     } else {
-      setCart([...cart, { ...product, quantity }]);
+      setCart([...cart, { ...product, quantity: quantities[product.id] }]);
     }
 
-    setQuantity(1);
+    // Restablecer la cantidad solo para el producto actual
+    setQuantities((prevQuantities) => ({ ...prevQuantities, [product.id]: 1 }));
   };
 
   const indexOfLastProduct = currentPage * itemsPerPage;
@@ -62,8 +64,8 @@ function Catalog() {
             <div className="mt-2 flex items-center space-x-4">
               <input
                 type="number"
-                value={quantity}
-                onChange={(e) => setQuantity(parseInt(e.target.value, 10) || 1)}
+                value={quantities[product.id] || 1}
+                onChange={(e) => setQuantities((prevQuantities) => ({ ...prevQuantities, [product.id]: parseInt(e.target.value, 10) || 1 }))}
                 className="border border-gray-300 px-2 py-1 w-16"
               />
               <button
@@ -87,6 +89,7 @@ function Catalog() {
 }
 
 export default Catalog;
+
 
 
 
