@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import abuela from '../assets/imagenes/abuela.jpg';
 import charla from '../assets/imagenes/charla.jpg';
 import limpieza from '../assets/imagenes/limpieza.jpg';
+import xicon from '../../public/img/logo/xicon.png'
 
 const images = [
   abuela,
@@ -83,7 +84,7 @@ export default function Servicescard() {
               className="absolute top-4 right-4 text-black"
               onClick={closeModal}
             >
-              Cerrar
+              <img src={xicon} alt="" />
             </button>
           </div>
         </div>

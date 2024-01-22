@@ -1,18 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import data from '../../public/data/data.json';
 import Pagination from './Pagination';
+import { useCart } from '../context/CartContext';
 
-const itemsPerPage = 8;
-
-export default function Catalog() {
+function Catalog() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const itemsPerPage = 8;
+  const [isCartVisible, setIsCartVisible] = useState(false);
   useEffect(() => {
-    // Asigna los datos al estado
-    setProducts(data);
+    const fetchData = async () => {
+      const response = await fetch('.../../data/data.json');
+      const data = await response.json();
+      setProducts(data);
+    };
+
+    fetchData();
   }, []);
+
+  const addToCart = (product) => {
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, quantity }]);
+    }
+
+    setQuantity(1);
+  };
 
   const indexOfLastProduct = currentPage * itemsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
@@ -22,64 +44,37 @@ export default function Catalog() {
     setCurrentPage(pageNumber);
   };
 
-  // Función para navegar a la página de detalles del producto
-  const navigateToProductDetails = (product) => {
-    // Construye la URL de la página de detalles del producto
-    const productDetailsURL = `/Productdetails?product=${encodeURIComponent(JSON.stringify(product))}`;
-
-    // Navega a la nueva URL
-    window.location.href = productDetailsURL;
-  };
-
-  // Evitar que el clic en el botón propague hacia el contenedor de la imagen
-  const handleButtonClick = (e, product) => {
-    e.stopPropagation();
-    // Aquí puedes agregar la lógica para manejar el clic del botón sin abrir la página de detalles
-    console.log(`Botón clic en el producto: ${product.name}`);
-  };
-
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-center text-black text-4xl font-bold">Productos</h2>
-
-        <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {currentProducts.map((product) => (
-            <div key={product.id} className="relative" onClick={() => navigateToProductDetails(product)}>
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md shadow-lg shadow-indigo-400 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img
-                  src={product.img}
-                  alt={product.img}
-                  className="h-48 w-48 object-cover object-center lg:h-48 lg:w-48 ml-10 mt-10 cursor-pointer"
-                />
-              </div>
-              <div className="mt-4 flex justify-center">
-                <div className='font-bold'>
-                  <h3 className="text-sm text-gray-700">
-                    {/* Utiliza Link para navegar a la página de detalles */}
-                    <Link to={`/Productdetails?product=${encodeURIComponent(JSON.stringify(product))}`}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.name}
-                    </Link>
-                  </h3>
-                  <div className='flex'>
-                    {/* Botón ahora está fuera del área de la imagen */}
-                    <button
-                      className='flex bg-sky-950 text-white text-md px-6 py-1 mt-3 hover:bg-amber-500'
-                      onClick={(e) => handleButtonClick(e, product)}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                      </svg>
-                      Add
-                    </button>
-                    <p className="text-md ml-4 mt-4 font-bold text-gray-900">{product.price}.€</p>
-                  </div>
-                </div>
-              </div>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl text-center font-semibold mb-4">Products</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {currentProducts.map((product) => (
+          <div key={product.id} className="bg-white p-4 shadow-md rounded-md">
+            <Link to={`/Productdetails?product=${encodeURIComponent(JSON.stringify(product))}`}>
+              <img
+                src={product.img}
+                alt={product.name}
+                className="w-full h-auto object-cover mb-2 cursor-pointer"
+              />
+              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+              <p className="text-gray-700">${product.price.toFixed(2)}</p>
+            </Link>
+            <div className="mt-2 flex items-center space-x-4">
+              <input
+                type="number"
+                value={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value, 10) || 1)}
+                className="border border-gray-300 px-2 py-1 w-16"
+              />
+              <button
+                onClick={() => addToCart(product)}
+                className="bg-sky-950 text-white px-4 py-2 rounded-md hover:bg-amber-500"
+              >
+                Add to Cart
+              </button>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
       <Pagination
         itemsPerPage={itemsPerPage}
@@ -90,6 +85,9 @@ export default function Catalog() {
     </div>
   );
 }
+
+export default Catalog;
+
 
 
 

@@ -8,6 +8,7 @@ import Productounico from './pages/Productdetails'
 import Aboutus from './pages/Aboutus'
 import Home from './pages/Home'
 import Footer from './componentes/Footer'
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
