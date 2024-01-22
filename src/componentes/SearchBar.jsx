@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-
+import { FcSearch } from "react-icons/fc";
 
 const SearchBar = () => {
     const [searchResults, setSearchResults] = useState([]);
@@ -8,6 +8,7 @@ const SearchBar = () => {
     
     const toggleSearch = () => {
     setSearchVisible(!searchVisible);
+   
   };
 
   const searchProducts = async () => {
@@ -17,6 +18,11 @@ const SearchBar = () => {
     const productos = await response.json();
     const resultados = productos.filter(producto => producto.name.toLowerCase().includes(searchTerm));
     setSearchResults(resultados);
+ // esto pegue
+    if (!searchVisible) {
+      setSearchVisible(true);
+    }
+    // hasta aaqui
 };
 
 const displaySearchResults = () => {
@@ -38,13 +44,15 @@ return (
         ref={searchInputRef}
         onChange={searchProducts}
         placeholder="Search..."
-        className="border p-2 w-24 ml-7 h-6 hidden sm:block"
+        className="border p-2 w-24 ml-7 h-6 hidden sm:block "
       />
         <button onClick={toggleSearch} className="text-white px-4 py-2 rounded">
-          <img src='../../public/img/lupa.png' className="bg-white w-6" alt="Buscar" />
+          <FcSearch size={30} />
+         
         </button>
+      
    
-
+   
       {searchVisible && (
         <div id="search-results" className="show-search">
           {displaySearchResults()}
