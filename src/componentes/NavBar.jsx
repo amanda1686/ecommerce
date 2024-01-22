@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-import React, { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
-import ghandslogo from "../assets/imagenes/logo/ghandslogo.svg";
-import loginicon from "../assets/imagenes/logo/loginicon.png";
-import Cart from "./Cart"; // Ajusta la ruta de importación según la estructura de tu proyecto
-import shoppingcart from "../../public/img/logo/shopping-cart.png";
-
-const navigation = [
-  { name: "Home", href: "/Home", current: true },
-  { name: "Product", href: "/Product", current: false },
-  { name: "Login", href: "/Login", current: false },
-  { name: "About us", href: "/Aboutus", current: false },
-];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-=======
 import React, { Fragment, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -36,7 +16,6 @@ const navigation = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
->>>>>>> parent of 735fe45 (update)
 }
 
 export default function Navbar() {
@@ -73,11 +52,7 @@ export default function Navbar() {
                 <div className="hidden sm:ml-4 sm:block mt-4">
                   <div className="flex space-x-10 ms-80">
                     {navigation.map((item) => (
-<<<<<<< HEAD
-                      <Link
-=======
                       <Link 
->>>>>>> parent of 735fe45 (update)
                         to={item.href}
                         key={item.name}
                         className={classNames(
@@ -94,13 +69,8 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div>
-<<<<<<< HEAD
-                  <button>
-                    <img src={shoppingcart} alt="" className="h-8 w-8 mr-4" />
-=======
                   <button onClick={() => setSidebarOpen(true)} className="focus:outline-none">
                     <img src={shoppingcart} alt=""  className='h-8 w-8 mr-4'/>
->>>>>>> parent of 735fe45 (update)
                   </button>
                 </div>
                 <Menu as="div" className="relative ml-3">
