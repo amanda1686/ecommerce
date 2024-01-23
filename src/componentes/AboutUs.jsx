@@ -13,7 +13,7 @@ const Agradecimiento = () => {
 
 const AboutUs = () => {
   return (
-    <main className="bg-D88530">
+    <main>
       <h1 className="text-4xl text-blue-dark font-bold text-center my-8">
         Quiénes Somos
       </h1>
