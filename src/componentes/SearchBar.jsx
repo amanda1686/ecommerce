@@ -28,19 +28,18 @@ const SearchBar = () => {
     setSearchTerm(term);
   };
 
-  const handleEnterPress = (e) => {
+  const handleEnterPress = async (e) => {
     if (e.key === 'Enter') {
       // Realiza la búsqueda aquí con searchTerm
-      const searchTerm = searchInputRef.current.value.toLowerCase();
+      const term = searchInputRef.current.value.toLowerCase();
       // Aquí debes ajustar la ruta correcta para obtener tu archivo JSON
-      fetch('/public/data/data.json')
-        .then((response) => response.json())
-        .then((productos) => {
-          const resultados = productos.filter((producto) => producto.name.toLowerCase().includes(searchTerm));
-          setSearchResults(resultados);
-          setSearchVisible(true);
-          openModal();
-        });
+      const response = await fetch('/public/data/data.json');
+      const productos = await response.json();
+
+      const resultados = productos.filter((producto) => producto.name.toLowerCase().includes(term));
+      setSearchResults(resultados);
+      setSearchVisible(true);
+      openModal();
     }
   };
 
@@ -58,12 +57,54 @@ const SearchBar = () => {
         <FcSearch size={30} />
       </button>
 
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-        <SearchResults results={searchResults} />
-        <button onClick={closeModal}>Close Modal</button>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={modalStyles}>
+        <div style={modalContentStyles}>
+          <div style={headerStyles}>
+            <h2>Search Results</h2>
+            <button onClick={closeModal} style={closeButtonStyles}>
+              X
+            </button>
+          </div>
+          <SearchResults results={searchResults} />
+        </div>
       </Modal>
     </div>
   );
+};
+
+// Estilos en línea
+const modalStyles = {
+  content: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '80%', // Ajusta el ancho según tus necesidades
+    maxWidth: '600px', // Ajusta el ancho máximo según tus necesidades
+    padding: '20px',
+    backgroundColor: 'white',
+    outline: 'none',
+  },
+};
+
+const modalContentStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const headerStyles = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: '10px',
+};
+
+const closeButtonStyles = {
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  fontSize: '16px',
+  color: '#333', // Ajusta el color según tus necesidades
 };
 
 export default SearchBar;
