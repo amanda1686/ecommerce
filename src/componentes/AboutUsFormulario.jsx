@@ -3,7 +3,7 @@ import { useState } from "react";
 const AboutUsFormulario = () => {
   const [email, setEmail] = useState("");
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [submittedEmails, setSubmittedEmails] = useState([]);
+  // const [submittedEmails, setSubmittedEmails] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = (e) => {

@@ -27,8 +27,9 @@ const AboutUs = () => {
         image="../../public/img/charla.jpg"
         title="Nuestra Misión"
         text="Nuestra misión es ser un faro de apoyo y comodidad para la comunidad de personas mayores. Buscamos no solo satisfacer sus necesidades cotidianas, sino también enriquecer sus vidas a través de servicios personalizados y productos de alta calidad, promoviendo un envejecimiento activo y saludable."
-        reverseImage // Agregar la prop reverseImage para invertir la posición de la imagen
+        reverseImage
       />
+
       <Article
         image="../../public/img/pareja.jpg"
         title="Razones para confiar en nosotros"
