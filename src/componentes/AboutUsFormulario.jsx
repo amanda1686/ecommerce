@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const AboutUsFormulario = () => {
   const [email, setEmail] = useState("");
