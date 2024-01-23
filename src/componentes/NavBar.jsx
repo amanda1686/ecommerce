@@ -3,15 +3,17 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import shoppingcart from '../../public/img/logo/shopping-cart.png';
-import ghandslogo from '../../public/img/logo/ghandslogo.svg'
-import loginicon from '../../public/img/logo/loginicon.png'
-import xicon from '../../public/img/logo/xicon.png'
+import ghandslogo from '../../public/img/logo/ghandslogo.svg';
+import loginicon from '../../public/img/logo/loginicon.png';
+import xicon from '../../public/img/logo/xicon.png';
+import useWishlist from '../componentes/useWishlist'; // Ajusta la ruta según la ubicación de tu hook
 
 const navigation = [
   { name: 'Home', href: '/Home', current: true },
   { name: 'Product', href: '/Product', current: false },
   { name: 'Login', href: '/Login', current: false },
   { name: 'About us', href: '/Aboutus', current: false },
+  { name: 'Wishlist', href: '/Wish', current: false },
 ];
 
 function classNames(...classes) {
@@ -20,6 +22,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const { wishlist } = useWishlist(); // Obtén la información de la wishlist
 
   return (
     <Disclosure as="nav" className="color">
@@ -57,11 +60,16 @@ export default function Navbar() {
                         key={item.name}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          'rounded-md px-3 py-2 text-sm font-medium relative'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
+                        {item.name === 'Wishlist' && (
+                          <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full p-1 text-xs">
+                            {wishlist.length}
+                          </span>
+                        )}
                       </Link>
                     ))}
                   </div>
@@ -157,7 +165,7 @@ export default function Navbar() {
               <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
               {/* Agrega aquí contenido adicional, como resumen del carrito */}
               <button onClick={() => setSidebarOpen(false)} className="absolute top-4 right-4 text-black bg-blue-500 hover:bg-amber-500">
-              <img src={xicon} alt="" />
+                <img src={xicon} alt="" />
               </button>
             </div>
           )}
@@ -166,4 +174,3 @@ export default function Navbar() {
     </Disclosure>
   );
 }
-

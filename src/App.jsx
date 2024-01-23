@@ -9,6 +9,7 @@ import Aboutus from "./pages/Aboutus";
 import Home from "./pages/Home";
 import Footer from "./componentes/Footer";
 import { CartProvider } from "./context/CartContext";
+import Wish from "./pages/Wish"; 
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Productdetails" element={<Productounico />} />
         <Route path="/Aboutus" element={<Aboutus />} />
+        <Route path="/Wish" element={<Wish />} /> 
       </Routes>
       <Footer />
     </BrowserRouter>
