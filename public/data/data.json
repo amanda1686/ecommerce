@@ -93,7 +93,7 @@
     "name": "Semillas de calabaza",
     "price": 4.1,
     "category": "frutos",
-    "img": "../../public/img/semillas-de-calabaza.jpg",
+    "img": "/img/semillas-de-calabaza.jpg",
     "description": "Semillas de calabaza crujientes y llenas de nutrientes, perfectas como snack o ingrediente en ensaladas."
   },
   {
@@ -101,7 +101,7 @@
     "name": "Semillas de Chía",
     "price": 4.5,
     "category": "frutos",
-    "img": "../../public/img/semillas-de-chia.jpg",
+    "img": "/img/semillas-de-chia.jpg",
     "description": "Semillas de chía, fuente de omega-3 y fibra, ideales para agregar a batidos, yogures y más."
   },
   {
@@ -109,7 +109,7 @@
     "name": "Semillas de girasol",
     "price": 4.25,
     "category": "frutos",
-    "img": "../../public/img/semillas-de-girasol.jpg",
+    "img": "/img/semillas-de-girasol.jpg",
     "description": "Semillas de girasol tostadas y deliciosas, una opción saludable para picar entre comidas."
   },
   {
@@ -117,7 +117,7 @@
     "name": "Semillas de Linaza",
     "price": 6.2,
     "category": "frutos",
-    "img": "../../public/img/semillas-de-linaza.jpg",
+    "img": "/img/semillas-de-linaza.jpg",
     "description": "Semillas de linaza ricas en ácidos grasos omega-3, añade a tu dieta un impulso nutricional."
   },
   {
@@ -125,7 +125,7 @@
     "name": "Avena",
     "price": 2.3,
     "category": "frutos",
-    "img": "../../public/img/avena.jpg",
+    "img": "/img/avena.jpg",
     "description": "Avena integral, fuente de fibra y energía, perfecta para el desayuno o como ingrediente versátil en la cocina."
   }
 ]
