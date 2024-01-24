@@ -65,7 +65,7 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                        {item.name === 'Wishlist' && (
+                        {item.name === 'Wishlist' && wishlist.length > 0 && (
                           <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full p-1 text-xs">
                             {wishlist.length}
                           </span>
