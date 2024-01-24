@@ -1,16 +1,19 @@
 import React, { Fragment, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link, useNavigate } from 'react-router-dom';
-import CartButton from './CartButton'; // Ajusta la ruta según tu estructura de archivos
+import { Link } from 'react-router-dom';
+import CartButton from './CartButton';
 import ghandslogo from '../../public/img/logo/ghandslogo.svg';
 import loginicon from '../../public/img/logo/loginicon.png';
+import useWishlist from '../componentes/useWishlist'; // Ajusta la ruta según la ubicación de tu hook
+import SearchBar from './SearchBar';
 
 const navigation = [
   { name: 'Home', href: '/Home', current: true },
   { name: 'Product', href: '/Product', current: false },
   { name: 'Login', href: '/Login', current: false },
   { name: 'About us', href: '/Aboutus', current: false },
+  { name: 'Wishlist', href: '/Wish', current: false },
 ];
 
 function classNames(...classes) {
@@ -18,19 +21,21 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const navigate = useNavigate();
+  const { wishlist } = useWishlist();
   const [isCartVisible, setCartVisible] = useState(false);
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const removeFromCart = (productId) => {
     // Lógica para eliminar un producto del carrito
+    // ...
   };
 
   const finishPurchase = () => {
     // Lógica para finalizar la compra
     // Por ejemplo, enviar información al servidor.
-    navigate('/checkout');
+    // navigate('/checkout'); // Asegúrate de tener la función navigate disponible
   };
 
   return (
@@ -40,6 +45,7 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex h-24 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -61,18 +67,23 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className="hidden sm:ml-4 sm:block mt-4">
-                  <div className="flex space-x-10 ms-80">
+                  <div className="flex space-x-5 ms-80">
                     {navigation.map((item) => (
                       <Link 
                         to={item.href}
                         key={item.name}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          'rounded-md px-3 py-2 text-sm font-medium relative'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
+                        {item.name === 'Wishlist' && (
+                          <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full p-1 text-xs">
+                            {wishlist.length}
+                          </span>
+                        )}
                       </Link>
                     ))}
                   </div>
@@ -82,9 +93,13 @@ export default function Navbar() {
                 <div>
                   <CartButton onClick={() => setCartVisible(!isCartVisible)} />
                 </div>
+                <SearchBar />
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button
+                      onClick={() => setUserMenuOpen(!userMenuOpen)}
+                      className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
@@ -95,6 +110,7 @@ export default function Navbar() {
                     </Menu.Button>
                   </div>
                   <Transition
+                    show={userMenuOpen}
                     as={Fragment}
                     enter="transition ease-out duration-100"
                     enterFrom="transform opacity-0 scale-95"
@@ -117,7 +133,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/Signin"
+                            to="/SignUp"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign In
@@ -127,7 +143,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/Home"
+                            to="/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
@@ -140,25 +156,6 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
 
           {/* Contenido del carrito directamente en la Navbar */}
           {isCartVisible && (
@@ -213,6 +210,3 @@ export default function Navbar() {
     </Disclosure>
   );
 }
-
-
-

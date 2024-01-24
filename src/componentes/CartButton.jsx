@@ -15,4 +15,3 @@ const CartButton = ({ onClick, cartCount }) => {
 };
 
 export default CartButton;
-

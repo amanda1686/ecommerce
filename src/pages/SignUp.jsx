@@ -1,10 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ReCAPTCHA from 'react-google-recaptcha';
 
 function Signin() {
-  const captcha = useRef(null);
-
   const [formData, setFormData] = useState({
     Nombre: '',
     Correo: '',
@@ -12,7 +9,6 @@ function Signin() {
   });
 
   const [errors, setErrors] = useState({});
-  const [recaptchaValid, setRecaptchaValid] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,11 +16,6 @@ function Signin() {
       ...formData,
       [name]: value,
     });
-  };
-
-  const onChange = () => {
-    // No necesitas hacer nada específico aquí
-    console.log('El usuario no es un robot');
   };
 
   const handleSubmit = (e) => {
@@ -39,7 +30,9 @@ function Signin() {
     // Validación del correo
     if (!formData.Correo.trim()) {
       newErrors.Correo = 'El correo es requerido';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Correo)) {
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Correo)
+    ) {
       newErrors.Correo = 'El correo no es válido';
     }
 
@@ -47,18 +40,14 @@ function Signin() {
     if (!formData.Contraseña.trim()) {
       newErrors.Contraseña = 'La contraseña es requerida';
     } else if (formData.Contraseña.trim().length < 6) {
-      newErrors.Contraseña = 'La contraseña debe tener al menos 6 caracteres';
-    }
-
-    // Validar reCAPTCHA
-    if (!recaptchaValid) {
-      newErrors.recaptcha = 'Por favor, completa el reCAPTCHA';
+      newErrors.Contraseña =
+        'La contraseña debe tener al menos 6 caracteres';
     }
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // Si no hay errores, el formulario es válido
+      // Aquí puedes enviar el formulario o realizar otras acciones
       console.log('Formulario válido, enviar datos:', formData);
     }
   };
@@ -77,7 +66,7 @@ function Signin() {
         <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-              Registro
+              Crear cuenta
             </p>
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-900">
@@ -85,8 +74,9 @@ function Signin() {
               </label>
               <input
                 placeholder="Nombre"
-                className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ${errors.Nombre ? 'border-red-500' : ''
-                  }`}
+                className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ${
+                  errors.Nombre ? 'border-red-500' : ''
+                }`}
                 id="username"
                 type="text"
                 name="Nombre"
@@ -102,8 +92,9 @@ function Signin() {
                 Correo
               </label>
               <input
-                className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ${errors.Correo ? 'border-red-500' : ''
-                  }`}
+                className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ${
+                  errors.Correo ? 'border-red-500' : ''
+                }`}
                 placeholder="correo@example.com"
                 id="email"
                 type="email"
@@ -121,8 +112,9 @@ function Signin() {
                 Contraseña
               </label>
               <input
-                className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ${errors.Contraseña ? 'border-red-500' : ''
-                  }`}
+                className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 ${
+                  errors.Contraseña ? 'border-red-500' : ''
+                }`}
                 placeholder="••••••••"
                 id="confirmPassword"
                 type="password"
@@ -142,7 +134,6 @@ function Signin() {
                   aria-describedby="terms"
                   id="terms"
                 />
-            
               </div>
               <div className="flex items-center justify-center  ml-3 text-sm">
                 <label className="font-light text-gray-500 text-gray-300">
@@ -151,23 +142,12 @@ function Signin() {
                     href="#"
                     className="font-medium text-primary-600 hover:underline text-primary-500"
                   >
-                    Términos y condiciones
+                    Términos y canciones
                   </a>
                 </label>
               </div>
             </div>
-          
-            <div className='recaptcha' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <ReCAPTCHA
-                ref={captcha}
-                sitekey='6LeqOlkpAAAAAAvbw7BUE4PicYwf-zj0VIq05a7P'
-                onChange={() => setRecaptchaValid(true)} // Actualiza el estado cuando el reCAPTCHA es válido
-              />
-              {errors.recaptcha && (
-                <p className='text-red-500'>{errors.recaptcha}</p>
-              )}
-            </div>
-            
+
             <button
               className="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:ring-blue-800 text-white"
               type="submit"
@@ -204,7 +184,7 @@ function Signin() {
               <div className="flex justify-center items-center">
                 <label className="mr-2">¿Ya tienes una cuenta?</label>
                 <Link
-                  to="/Login2"
+                  to="/Login"
                   className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
                 >
                   <p>
