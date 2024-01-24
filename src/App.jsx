@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./componentes/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
 import Login from "./pages/Login";
@@ -13,13 +12,14 @@ import Wish from "./pages/Wish";
 import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import Catalog from './componentes/Catalog';
+import { Navbar } from "@material-tailwind/react";
 
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+    <Navbar />
         <CartProvider>
       <Routes>
         <Route path="/" element={<Home />} index />
