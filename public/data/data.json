@@ -77,7 +77,7 @@
     "name": "Leche de coco",
     "price": 2.3,
     "category": "lacteos",
-    "img": "https://amparoreposteria.com/cdn/shop/products/COCO-RALLADO-GOURMET-100GR._200x.jpg?v=1591124566",
+    "img": "/img/leche-de-coco.jpg",
     "description": "Leche de coco cremosa, añade un toque tropical a tus recetas y bebidas favoritas."
   },
   {
@@ -93,7 +93,7 @@
     "name": "Semillas de calabaza",
     "price": 4.1,
     "category": "frutos",
-    "img": "/img/semillas-de-calabaza.jpg",
+    "img": "../../public/img/semillas-de-calabaza.jpg",
     "description": "Semillas de calabaza crujientes y llenas de nutrientes, perfectas como snack o ingrediente en ensaladas."
   },
   {
