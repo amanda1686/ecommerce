@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import abuela from '../assets/imagenes/abuela.jpg';
-import charla from '../assets/imagenes/charla.jpg';
-import limpieza from '../assets/imagenes/limpieza.jpg';
+import abuela from '../../public/img/abuela.jpg';
+import charla from '../../public/img/charla.jpg';
+import limpieza from '../../public/img/limpieza.jpg';
 import xicon from '../../public/img/logo/xicon.png'
 
 const images = [
