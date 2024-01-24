@@ -22,16 +22,22 @@ const Catalog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/products'); // Reemplaza 'tu-endpoint' con la ruta correcta
+        // Obtén la URL base de la API desde la variable de entorno
+        const apiUrl = process.env.REACT_APP_GOLDEN_APP_API_URL || 'http://localhost:3001';
+        console.log('API URL:', apiUrl);
+        
+        const response = await axios.get(`${apiUrl}/products`);
+        console.log('Response Data:', response.data);
+        
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
+  
     fetchData();
-  }, []);
-
+  }, []);      
+  
   useEffect(() => {
     // Guardar el estado de la lista de deseos en localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
