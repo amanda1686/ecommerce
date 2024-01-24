@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 
+
+
 function Signin() {
   const captcha = useRef(null);
 
@@ -48,7 +50,10 @@ function Signin() {
       newErrors.Contraseña = 'La contraseña es requerida';
     } else if (formData.Contraseña.trim().length < 6) {
       newErrors.Contraseña = 'La contraseña debe tener al menos 6 caracteres';
+    } else if (!/\d/.test(formData.Contraseña.trim())) {
+      newErrors.Contraseña = 'La contraseña debe contener al menos un número';
     }
+
 
     // Validar reCAPTCHA
     if (!recaptchaValid) {
@@ -76,7 +81,7 @@ function Signin() {
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-20">
         <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+            <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
               Crear cuenta
             </p>
             <div>
@@ -148,7 +153,7 @@ function Signin() {
                 <label className="font-light text-gray-500 text-gray-300">
                   Acepto los{' '}
                   <a
-                    href="#"
+                    href="/Helpsection"
                     className="font-medium text-primary-600 hover:underline text-primary-500"
                   >
                     Términos y condiciones

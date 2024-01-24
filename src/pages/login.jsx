@@ -1,6 +1,6 @@
 import React from 'react';
 import Signin from '../componentes/Signin';
-import Footer from '../componentes/Footer';
+
 
 export default function Login() {
   return (
@@ -11,3 +11,10 @@ export default function Login() {
   );
 }
 
+function Helpsection() {
+  return (
+    <div>
+      <Help/>
+    </div>
+  )
+}
