@@ -1,11 +1,10 @@
-// SearchBar.js
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FcSearch } from 'react-icons/fc';
+import { FaTimes } from 'react-icons/fa';
 import Modal from 'react-modal';
 import SearchResults from './SearchResults';
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchVisible, setSearchVisible] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,9 +29,7 @@ const SearchBar = () => {
 
   const handleEnterPress = async (e) => {
     if (e.key === 'Enter') {
-      // Realiza la búsqueda aquí con searchTerm
       const term = searchInputRef.current.value.toLowerCase();
-      // Aquí debes ajustar la ruta correcta para obtener tu archivo JSON
       const response = await fetch('/public/data/data.json');
       const productos = await response.json();
 
@@ -42,6 +39,8 @@ const SearchBar = () => {
       openModal();
     }
   };
+
+ 
 
   return (
     <div className="flex items-center space-x-4">
@@ -60,30 +59,33 @@ const SearchBar = () => {
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={modalStyles}>
         <div style={modalContentStyles}>
           <div style={headerStyles}>
-            <h2>Search Results</h2>
+            <h2 style={modalTitleStyles}>Search Results</h2>
             <button onClick={closeModal} style={closeButtonStyles}>
-              X
+              <FaTimes style={{ marginRight: '5px' }} className="bg-sky-950 text-white px-4 py-2 rounded-md hover:bg-amber-500" />
+              Close
             </button>
           </div>
-          <SearchResults results={searchResults} />
+          <SearchResults results={searchResults}/>
         </div>
       </Modal>
     </div>
   );
 };
 
-// Estilos en línea
 const modalStyles = {
   content: {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '80%', // Ajusta el ancho según tus necesidades
-    maxWidth: '600px', // Ajusta el ancho máximo según tus necesidades
+    width: '90%',
+    maxWidth: '800px',
+    height: '90%',
+    maxHeight: '600px',
     padding: '20px',
     backgroundColor: 'white',
     outline: 'none',
+    overflow: 'auto',
   },
 };
 
@@ -99,12 +101,21 @@ const headerStyles = {
   marginBottom: '10px',
 };
 
+const modalTitleStyles = {
+  fontSize: '24px',
+  fontWeight: 'bold',
+  margin: '0',
+  color: '#333',
+};
+
 const closeButtonStyles = {
   background: 'none',
   border: 'none',
   cursor: 'pointer',
   fontSize: '16px',
-  color: '#333', // Ajusta el color según tus necesidades
+  color: '#333',
+  display: 'flex',
+  alignItems: 'center',
 };
 
 export default SearchBar;
