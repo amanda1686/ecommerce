@@ -24,14 +24,14 @@ const AboutUs = () => {
       />
 
       <Article
-        image="../../public/img/charla.jpg"
+        image="/img/charla.jpg"
         title="Nuestra Misión"
         text="Nuestra misión es ser un faro de apoyo y comodidad para la comunidad de personas mayores. Buscamos no solo satisfacer sus necesidades cotidianas, sino también enriquecer sus vidas a través de servicios personalizados y productos de alta calidad, promoviendo un envejecimiento activo y saludable."
         reverseImage
       />
 
       <Article
-        image="../../public/img/pareja.jpg"
+        image="/img/pareja.jpg"
         title="Razones para confiar en nosotros"
         text="En GoldenHands, nos esforzamos por crear un entorno en el que la atención, el respeto y la empatía son la base de cada interacción. Nuestro equipo está comprometido con brindar un servicio excepcional y productos de calidad, adaptados a las necesidades individuales de cada persona mayor a la que servimos."
       />
