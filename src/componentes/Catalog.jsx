@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from './Pagination';
+import CartButton from './CartButton';
 
-function Catalog() {
+const Catalog = () => {
+  const [isCartVisible, setIsCartVisible] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
-  const [isCartVisible, setIsCartVisible] = useState(false);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -29,22 +30,28 @@ function Catalog() {
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
-
+  
+    // Asegurarse de que la cantidad sea un número válido
+    const quantityToAdd = parseInt(quantities[product.id], 10) || 1;
+  
     if (existingProduct) {
       setCart(
         cart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + quantities[product.id] }
+            ? { ...item, quantity: item.quantity + quantityToAdd }
             : item
         )
       );
     } else {
-      setCart([...cart, { ...product, quantity: quantities[product.id] }]);
+      setCart([...cart, { ...product, quantity: quantityToAdd }]);
     }
-
+  
+    // Actualizar el total al agregar un producto
+    setTotal((prevTotal) => prevTotal + product.price * quantityToAdd);
     setQuantities((prevQuantities) => ({ ...prevQuantities, [product.id]: 1 }));
     setIsCartVisible(true);
   };
+  
 
   const removeFromCart = (index) => {
     const newCart = [...cart];
@@ -73,7 +80,7 @@ function Catalog() {
                 className="w-full h-auto object-cover mb-2 cursor-pointer"
               />
               <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-700">${product.price.toFixed(2)}</p>
+              <p className="text-gray-700">{product.price.toFixed(2)} €</p>
             </Link>
             <div className="mt-2 flex items-center space-x-4">
               <input
@@ -116,21 +123,23 @@ function Catalog() {
           {cart.map((product, index) => (
             <div key={index} className="bg-white p-4 shadow-md rounded-md mb-4">
               <p>{product.name}</p>
-              <p>Precio: ${product.price.toFixed(2)}</p>
-              <p>Cantidad: {product.quantity}</p>
+              <p>Precio: {product.price.toFixed(2)} €</p>
+              <p>Cantidad: {product.quantity} €</p>
               <button onClick={() => removeFromCart(index)} className="text-red-500">
                 Quitar del carrito
               </button>
             </div>
           ))}
-          <div className="text-xl font-semibold mb-2">Total: ${total.toFixed(2)}</div>
+          <div className="text-xl font-semibold mb-2">Total: {total.toFixed(2)}€</div>
         </div>
       )}
+      <CartButton onClick={() => setIsCartVisible(!isCartVisible)} />
     </div>
   );
-}
+};
 
 export default Catalog;
+
 
 
 

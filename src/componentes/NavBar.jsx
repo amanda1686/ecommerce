@@ -1,11 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
-import shoppingcart from '../../public/img/logo/shopping-cart.png';
-import ghandslogo from '../../public/img/logo/ghandslogo.svg'
-import loginicon from '../../public/img/logo/loginicon.png'
-import xicon from '../../public/img/logo/xicon.png'
+import { Link , useNavigate} from 'react-router-dom';
+import CartButton from './CartButton'; // Ajusta la ruta según tu estructura de archivos
+import ghandslogo from '../../public/img/logo/ghandslogo.svg';
+import loginicon from '../../public/img/logo/loginicon.png';
 
 const navigation = [
   { name: 'Home', href: '/Home', current: true },
@@ -19,7 +18,31 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isCartVisible, setCartVisible] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
+
+  const removeFromCart = (productId) => {
+    const removedProductIndex = cart.findIndex((product) => product.id === productId);
+    if (removedProductIndex === -1) {
+      return;
+    }
+
+    const removedProduct = cart[removedProductIndex];
+    const newCart = [...cart];
+    newCart.splice(removedProductIndex, 1);
+    setCart(newCart);
+
+    setTotal((prevTotal) => prevTotal - removedProduct.price * removedProduct.quantity);
+  };
+
+  const finishPurchase = () => {
+    // Lógica para finalizar la compra.
+    // Por ejemplo, enviar información al servidor.
+    navigate('/checkout');
+  };
+
 
   return (
     <Disclosure as="nav" className="color">
@@ -28,7 +51,6 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
             <div className="relative flex h-24 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -69,9 +91,7 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div>
-                  <button onClick={() => setSidebarOpen(true)} className="focus:outline-none">
-                    <img src={shoppingcart} alt=""  className='h-8 w-8 mr-4'/>
-                  </button>
+                  <CartButton onClick={() => setCartVisible(!isCartVisible)} />
                 </div>
                 <Menu as="div" className="relative ml-3">
                   <div>
@@ -151,19 +171,39 @@ export default function Navbar() {
             </div>
           </Disclosure.Panel>
 
-          {/* Barra lateral del carrito */}
-          {isSidebarOpen && (
-            <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-200 p-4">
-              <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
-              {/* Agrega aquí contenido adicional, como resumen del carrito */}
-              <button onClick={() => setSidebarOpen(false)} className="absolute top-4 right-4 text-black bg-blue-500 hover:bg-amber-500">
-              <img src={xicon} alt="" />
-              </button>
-            </div>
-          )}
-        </>
-      )}
-    </Disclosure>
+          {/* Contenido del carrito directamente en la Navbar */}
+          {isCartVisible && (
+      <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-200 p-4">
+        <button
+          onClick={() => setCartVisible(false)}
+          className="text-red-500 text-xl font-semibold mb-4"
+        >
+          Cerrar
+        </button>
+        <h2 className="text-xl font-semibold mb-4">Resumen de compra</h2>
+        {cart.length === 0 ? (
+          <p>No hay productos en el carrito.</p>
+        ) : (
+          <>
+            <ul className="divide-y divide-gray-300">
+              {/* Renderizar productos del carrito */}
+            </ul>
+            <div className="text-xl font-semibold mt-4">Total: {total.toFixed(2)}€</div>
+
+            {/* Botón de Finalizar compra */}
+            <button
+              onClick={finishPurchase}
+              className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-600"
+            >
+              Finalizar compra : {total.toFixed(2)}€
+            </button>
+          </>
+        )}
+      </div>
+    )}
   );
-}
+ }
+
+
+
 
