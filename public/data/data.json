@@ -77,7 +77,7 @@
     "name": "Leche de coco",
     "price": 2.3,
     "category": "lacteos",
-    "img": "http://localhost:3001/public/img/leche-de-coco.jpg",
+    "img": "/img/leche-de-coco.jpg",
     "description": "Leche de coco cremosa, añade un toque tropical a tus recetas y bebidas favoritas."
   },
   {
