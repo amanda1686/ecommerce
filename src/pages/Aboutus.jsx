@@ -18,7 +18,7 @@ const AboutUs = () => {
       </h1>
 
       <Article
-        image="../../public/img/baston.jpg"
+        image="./img/baston.jpg"
         title="Nuestra Pasión por el Bienestar"
         text="En GoldenHands, nos dedicamos apasionadamente a proporcionar apoyo integral a nuestros mayores, reconociendo la importancia de su bienestar y comodidad en cada etapa de la vida. Nuestro compromiso es ofrecer servicios de acompañamiento personalizados y productos especializados que mejoren la calidad de vida de quienes han acumulado sabiduría a lo largo de los años."
       />
