@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link , useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CartButton from './CartButton'; // Ajusta la ruta según tu estructura de archivos
 import ghandslogo from '../../public/img/logo/ghandslogo.svg';
 import loginicon from '../../public/img/logo/loginicon.png';
@@ -18,31 +18,20 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isCartVisible, setCartVisible] = useState(false);
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
-  const navigate = useNavigate();
 
   const removeFromCart = (productId) => {
-    const removedProductIndex = cart.findIndex((product) => product.id === productId);
-    if (removedProductIndex === -1) {
-      return;
-    }
-
-    const removedProduct = cart[removedProductIndex];
-    const newCart = [...cart];
-    newCart.splice(removedProductIndex, 1);
-    setCart(newCart);
-
-    setTotal((prevTotal) => prevTotal - removedProduct.price * removedProduct.quantity);
+    // Lógica para eliminar un producto del carrito
   };
 
   const finishPurchase = () => {
-    // Lógica para finalizar la compra.
+    // Lógica para finalizar la compra
     // Por ejemplo, enviar información al servidor.
     navigate('/checkout');
   };
-
 
   return (
     <Disclosure as="nav" className="color">
@@ -117,32 +106,32 @@ export default function Navbar() {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="/Login"
+                          <Link
+                            to="/Login"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Login
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="/Signin"
+                          <Link
+                            to="/Signin"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign In
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="/Home"
+                          <Link
+                            to="/Home"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -173,37 +162,57 @@ export default function Navbar() {
 
           {/* Contenido del carrito directamente en la Navbar */}
           {isCartVisible && (
-      <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-200 p-4">
-        <button
-          onClick={() => setCartVisible(false)}
-          className="text-red-500 text-xl font-semibold mb-4"
-        >
-          Cerrar
-        </button>
-        <h2 className="text-xl font-semibold mb-4">Resumen de compra</h2>
-        {cart.length === 0 ? (
-          <p>No hay productos en el carrito.</p>
-        ) : (
-          <>
-            <ul className="divide-y divide-gray-300">
-              {/* Renderizar productos del carrito */}
-            </ul>
-            <div className="text-xl font-semibold mt-4">Total: {total.toFixed(2)}€</div>
+            <div className="fixed top-0 right-0 h-full w-1/4 bg-gray-200 p-4">
+              <button
+                onClick={() => setCartVisible(false)}
+                className="text-red-500 text-xl font-semibold mb-4"
+              >
+                Cerrar
+              </button>
+              <h2 className="text-xl font-semibold mb-4">Resumen de compra</h2>
+              {cart.length === 0 ? (
+                <p>No hay productos en el carrito.</p>
+              ) : (
+                <>
+                  <ul className="divide-y divide-gray-300">
+                    {cart.map((product, index) => (
+                      <li key={index} className="py-2">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="font-semibold">{product.name}</p>
+                            <p>Precio: {product.price.toFixed(2)} €</p>
+                            <p>Cantidad: {product.quantity}</p>
+                          </div>
+                          <div>
+                            <button
+                              onClick={() => removeFromCart(product.id)}
+                              className="text-red-500"
+                            >
+                              Quitar del carrito
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="text-xl font-semibold mt-4">Total: {total.toFixed(2)}€</div>
 
-            {/* Botón de Finalizar compra */}
-            <button
-              onClick={finishPurchase}
-              className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-600"
-            >
-              Finalizar compra : {total.toFixed(2)}€
-            </button>
-          </>
-        )}
-      </div>
-    )}
+                  {/* Botón de Finalizar compra */}
+                  <button
+                    onClick={finishPurchase}
+                    className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-600"
+                  >
+                    Finalizar compra : {total.toFixed(2)}€
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+        </>
+      )}
+    </Disclosure>
   );
- }
-
+}
 
 
 
