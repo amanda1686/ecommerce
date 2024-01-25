@@ -1,6 +1,7 @@
+// SearchResults.js
 import React, { useEffect } from 'react';
 
-const SearchResults = ({ results, addToCart, buttonRefresh }) => {
+const SearchResults = ({ results, buttonRefresh }) => {
   useEffect(() => {
     // Lógica para manejar la actualización del botón
     // Puedes realizar acciones adicionales aquí si es necesario
@@ -9,7 +10,7 @@ const SearchResults = ({ results, addToCart, buttonRefresh }) => {
 
   return (
     <div id="search-results" className="show-search" style={searchResultsContainerStyles}>
-      <div style={resultsContainerStyles}>
+      <div className="grid grid-cols-4 gap-4">
         {results.map(result => (
           <div key={result.id} className="search-result" style={searchResultStyles}>
             <div className="search-img-container">
@@ -23,12 +24,6 @@ const SearchResults = ({ results, addToCart, buttonRefresh }) => {
             <div className="search-details" style={searchDetailsStyles}>
               <div className="search-name">{result.name}</div>
               <div className="search-price">Precio: ${result.price}</div>
-              <button
-                onClick={() => addToCart(result)}
-                className={`bg-sky-950 text-white px-4 py-2 rounded-md hover:bg-amber-500 ${buttonRefresh ? 'refresh-button' : ''}`}
-              >
-                Add to Cart
-              </button>
             </div>
           </div>
         ))}
@@ -44,15 +39,9 @@ const searchResultsContainerStyles = {
   padding: '10px',
 };
 
-const resultsContainerStyles = {
-  display: 'flex',
-  overflowX: 'auto',
-};
-
 const searchResultStyles = {
   display: 'flex',
   flexDirection: 'column',
-  marginRight: '20px',
 };
 
 const searchImageStyles = {

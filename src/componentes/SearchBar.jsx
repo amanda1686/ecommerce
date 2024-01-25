@@ -30,7 +30,7 @@ const SearchBar = () => {
   const handleEnterPress = async (e) => {
     if (e.key === 'Enter') {
       const term = searchInputRef.current.value.toLowerCase();
-      const response = await fetch('/public/data/data.json');
+      const response = await fetch('http://localhost:3001/products');
       const productos = await response.json();
 
       const resultados = productos.filter((producto) => producto.name.toLowerCase().includes(term));
