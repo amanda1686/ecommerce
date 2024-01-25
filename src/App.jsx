@@ -14,6 +14,7 @@ import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import Catalog from './componentes/Catalog';
 import Services from "./pages/Services";
+import Date from "./pages/Date";
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/" element={<Catalog />} />
         <Route path="/Services" element={<Services />} />
+        <Route path="/Date" element={<Date />} />
       </Routes>
       </CartProvider>
       <Footer />
