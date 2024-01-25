@@ -5,7 +5,7 @@
     "name": "Coco rallado",
     "price": 2.85,
     "category": "frutos",
-    "img": "/imagenes/coco-rallado.jpg",
+    "img": "/img/coco-rallado.jpg",
     "description": "Coco rallado de alta calidad para usar en repostería o como complemento en diversos platillos."
   },
   {
@@ -13,7 +13,7 @@
     "name": "Harina de almendra",
     "price": 7.6,
     "category":  "celiaco",
-    "img": "/imagenes/coco-rallado.jpg",
+    "img": "/img/leche-de-almendras.jpg",
     "description": "Harina de almendra finamente molida, ideal para personas con intolerancia al gluten."
   },
   {
@@ -21,7 +21,7 @@
     "name": "Harina de arroz",
     "price": 3.4,
     "category": "celiaco",
-    "img": "/imgagnes/harina-de-arroz.jpg",
+    "img": "/img/harina-de-arroz.jpg",
     "description": "Harina de arroz de textura suave, perfecta para preparar alimentos sin gluten."
   },
   {
