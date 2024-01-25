@@ -249,16 +249,6 @@ const Catalog = () => {
           </button>
         </div>
       )}
-
-      <CartButton
-        onClick={() => setIsCartVisible(!isCartVisible)}
-        cartCount={cart.length}
-        cartItems={cart}
-        removeFromCart={removeFromCart}
-        decreaseQuantity={decreaseQuantity}
-        finishPurchase={finishPurchase}
-        total={total}
-      />
     </div>
   );
 };
