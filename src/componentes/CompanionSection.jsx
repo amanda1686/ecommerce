@@ -8,7 +8,7 @@ function CompanionSection() {
     subTitle: "En GoldenHands, nuestra misión es brindar tranquilidad y bienestar a las familias alrededor del mundo.",
     description: "Entendemos lo importante que es para ti el cuidado de tus seres queridos, especialmente cuando se trata de tus mayores. Es por eso que nos preocupamos profundamente por garantizar que tus seres queridos estén siempre acompañados, con amor y atención dedicados, incluye:",
     listItems: ["- Citas médicas", "- Paseo", "- Actividades de ocio"],
-    buttonText: "Añadir al carrito",
+    buttonText: "Más Información",
     imageSrc: "../../public/img/abuela.jpg",
     altText: "Una mujer de tercera edad riendo con otra mujer más joven",
   };
