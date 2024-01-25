@@ -14,7 +14,7 @@ function PurchaseSection() {
       "- Asistencia de nutrición",
     ],
     buttonText: "Añadir al carrito",
-    imageSrc: "../../public/img/compra.jpg",
+    imageSrc: "/img/compra.jpg",
     altText: "Una mujer pagando en la caja de un supermercado",
   };
 
