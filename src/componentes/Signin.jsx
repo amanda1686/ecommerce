@@ -78,6 +78,78 @@ function Signin() {
     window.location.href = 'https://www.google.es/';
   };
 
+  function TermsModal({ closeModal }) {
+    return (
+      <div className="fixed inset-0 overflow-y-auto">
+        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+          </div>
+  
+          <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+            &#8203;
+          </span>
+  
+          <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div className="bg-white p-6">
+              {/* Contenido del modal */}
+              <h2 className="text-lg font-bold mb-4">Términos y Condiciones</h2>
+              <p>Fecha de última actualización: [Fecha]
+  
+                Bienvenido a GoldenHands, el lugar donde nos importa el bienestar y el cuidado de las personas mayores. Agradecemos que confíes en nosotros para brindar el mejor cuidado posible a tus seres queridos. Al acceder y utilizar nuestros servicios, aceptas cumplir con los siguientes términos y condiciones:
+  
+                Aceptación de Términos:
+                Al utilizar los servicios de GoldenHands, aceptas estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguno de los términos, te recomendamos que no utilices nuestros servicios.
+  
+                Cuidado de Personas Mayores:
+                GoldenHands se compromete a proporcionar servicios de alta calidad para el cuidado de personas mayores. Nuestro enfoque está en la atención compasiva y profesional para garantizar la comodidad y seguridad de quienes confían en nosotros.
+  
+                Información del Usuario:
+                Para utilizar algunos de nuestros servicios, es posible que se te solicite proporcionar información personal. GoldenHands se compromete a proteger tu privacidad y a utilizar la información de acuerdo con nuestra Política de Privacidad.
+  
+                Responsabilidades del Usuario:
+                Al utilizar nuestros servicios, aceptas ser responsable de cualquier información proporcionada y garantizas que la misma sea precisa y completa. Además, te comprometes a mantener la confidencialidad de cualquier información de acceso proporcionada.
+  
+                Derechos de Propiedad Intelectual:
+                Todo el contenido y los derechos de propiedad intelectual en el sitio web y la aplicación de GoldenHands son propiedad exclusiva de GoldenHands. No tienes permiso para utilizar, reproducir o distribuir el contenido sin autorización.
+  
+                Modificaciones de Términos:
+                GoldenHands se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigencia inmediatamente después de su publicación en nuestro sitio web. Se te recomienda revisar periódicamente los términos y condiciones para mantenerte informado.
+  
+                Terminación de Servicios:
+                GoldenHands se reserva el derecho de suspender o cancelar tus servicios en cualquier momento, si consideramos que has violado estos términos y condiciones o si existe una razón justificada.
+  
+                Limitación de Responsabilidad:
+                GoldenHands no será responsable por daños directos, indirectos, incidentales, especiales o consecuentes resultantes del uso o la imposibilidad de usar nuestros servicios.
+  
+                Jurisdicción y Ley Aplicable:
+                Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes del lugar donde esté ubicada la sede principal de GoldenHands.
+  
+                Al utilizar los servicios de GoldenHands, reconoces haber leído y comprendido estos términos y condiciones. Apreciamos tu confianza y estamos comprometidos a brindar el mejor cuidado posible a nuestros adultos mayores. Si tienes alguna pregunta, no dudes en ponerte en contacto con nosotros.
+  
+                Gracias por elegir GoldenHands.
+  
+                [Nombre de la Empresa]
+                GoldenHands</p>
+  
+              <div className="mt-4">
+                <button
+                  onClick={closeModal}
+                  type="button"
+                  className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-20">
@@ -227,76 +299,6 @@ function Signin() {
         </div>
       </div>
     </form>
-  );
-}
-
-function TermsModal({ closeModal }) {
-  return (
-    <div className="fixed inset-0 overflow-y-auto">
-      <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div className="fixed inset-0 transition-opacity" aria-hidden="true">
-          <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
-        </div>
-
-        <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
-          &#8203;
-        </span>
-
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-          <div className="bg-white p-6">
-            {/* Contenido del modal */}
-            <h2 className="text-lg font-bold mb-4">Términos y Condiciones</h2>
-            <p>Fecha de última actualización: [Fecha]
-
-              Bienvenido a GoldenHands, el lugar donde nos importa el bienestar y el cuidado de las personas mayores. Agradecemos que confíes en nosotros para brindar el mejor cuidado posible a tus seres queridos. Al acceder y utilizar nuestros servicios, aceptas cumplir con los siguientes términos y condiciones:
-
-              Aceptación de Términos:
-              Al utilizar los servicios de GoldenHands, aceptas estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguno de los términos, te recomendamos que no utilices nuestros servicios.
-
-              Cuidado de Personas Mayores:
-              GoldenHands se compromete a proporcionar servicios de alta calidad para el cuidado de personas mayores. Nuestro enfoque está en la atención compasiva y profesional para garantizar la comodidad y seguridad de quienes confían en nosotros.
-
-              Información del Usuario:
-              Para utilizar algunos de nuestros servicios, es posible que se te solicite proporcionar información personal. GoldenHands se compromete a proteger tu privacidad y a utilizar la información de acuerdo con nuestra Política de Privacidad.
-
-              Responsabilidades del Usuario:
-              Al utilizar nuestros servicios, aceptas ser responsable de cualquier información proporcionada y garantizas que la misma sea precisa y completa. Además, te comprometes a mantener la confidencialidad de cualquier información de acceso proporcionada.
-
-              Derechos de Propiedad Intelectual:
-              Todo el contenido y los derechos de propiedad intelectual en el sitio web y la aplicación de GoldenHands son propiedad exclusiva de GoldenHands. No tienes permiso para utilizar, reproducir o distribuir el contenido sin autorización.
-
-              Modificaciones de Términos:
-              GoldenHands se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigencia inmediatamente después de su publicación en nuestro sitio web. Se te recomienda revisar periódicamente los términos y condiciones para mantenerte informado.
-
-              Terminación de Servicios:
-              GoldenHands se reserva el derecho de suspender o cancelar tus servicios en cualquier momento, si consideramos que has violado estos términos y condiciones o si existe una razón justificada.
-
-              Limitación de Responsabilidad:
-              GoldenHands no será responsable por daños directos, indirectos, incidentales, especiales o consecuentes resultantes del uso o la imposibilidad de usar nuestros servicios.
-
-              Jurisdicción y Ley Aplicable:
-              Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes del lugar donde esté ubicada la sede principal de GoldenHands.
-
-              Al utilizar los servicios de GoldenHands, reconoces haber leído y comprendido estos términos y condiciones. Apreciamos tu confianza y estamos comprometidos a brindar el mejor cuidado posible a nuestros adultos mayores. Si tienes alguna pregunta, no dudes en ponerte en contacto con nosotros.
-
-              Gracias por elegir GoldenHands.
-
-              [Nombre de la Empresa]
-              GoldenHands</p>
-
-            <div className="mt-4">
-              <button
-                onClick={closeModal}
-                type="button"
-                className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
-              >
-                Cerrar
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
