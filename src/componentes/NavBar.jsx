@@ -9,7 +9,7 @@ import useWishlist from '../componentes/useWishlist'; // Ajusta la ruta según l
 import SearchBar from './SearchBar';
 
 const navigation = [
-  { name: 'Home', href: '/Home', current: true },
+  { name: 'Home', href: '/', current: true },
   { name: 'Product', href: '/Product', current: false },
   { name: 'Login', href: '/Login', current: false },
   { name: 'About us', href: '/Aboutus', current: false },
@@ -58,7 +58,7 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href="/Home">
+                  <a href="/">
                     <img
                       className="h-16 w-auto"
                       src={ghandslogo}
