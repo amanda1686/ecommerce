@@ -14,7 +14,7 @@ function CleaningSection() {
       "- Orden del mobiliario",
     ],
     buttonText: "Añadir al carrito",
-    imageSrc: "../../public/img/limpieza.jpg",
+    imageSrc: "/img/limpieza.jpg",
     altText: "Una mujer limpiando una mesa con uniforme y guantes",
   };
 
