@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { useHistory } from 'react-router-dom';
+
 
 
 function Signin() {
   const [showModal, setShowModal] = useState(false);
   const captcha = useRef(null);
+  const history = useHistory();
 
 
   const [formData, setFormData] = useState({
@@ -56,11 +59,18 @@ function Signin() {
       newErrors.Contraseña = 'La contraseña debe contener al menos un número';
     }
 
+    if (Object.keys(newErrors).length === 0) {
+      // Si no hay errores, el formulario es válido
+      console.log('Formulario válido, enviar datos:', formData);
+      history.push('/ruta-de-destino'); // Reemplaza '/ruta-de-destino' con la ruta a la que deseas redirigir
+    }
+
 
     // Validar reCAPTCHA
     if (!recaptchaValid) {
       newErrors.recaptcha = 'Por favor, completa el reCAPTCHA';
     }
+    
 
     setErrors(newErrors);
 
@@ -68,6 +78,7 @@ function Signin() {
       // Si no hay errores, el formulario es válido
       console.log('Formulario válido, enviar datos:', formData);
     }
+    
   };
 
   const redirectToFacebook = () => {
