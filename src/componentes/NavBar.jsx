@@ -12,7 +12,6 @@ const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Product', href: '/Product', current: false },
   { name: 'Login', href: '/Login', current: false },
-  { name: 'About us', href: '/Aboutus', current: false },
   { name: 'Wishlist', href: '/Wish', current: false },
   { name: 'Services', href: '/Services', current: false },
 ];
