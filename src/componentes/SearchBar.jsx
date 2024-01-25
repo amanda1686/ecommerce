@@ -5,9 +5,13 @@ import Modal from 'react-modal';
 import SearchResults from './SearchResults';
 
 const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchVisible, setSearchVisible] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [buttonRefresh, setButtonRefresh] = useState(false);
+  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
   const searchInputRef = useRef(null);
 
   const toggleSearch = () => {
@@ -40,7 +44,11 @@ const SearchBar = () => {
     }
   };
 
- 
+  useEffect(() => {
+    if (!modalIsOpen) {
+      setButtonRefresh((prev) => !prev);
+    }
+  }, [modalIsOpen]);
 
   return (
     <div className="flex items-center space-x-4">
@@ -65,12 +73,13 @@ const SearchBar = () => {
               Close
             </button>
           </div>
-          <SearchResults results={searchResults}/>
+          <SearchResults results={searchResults} buttonRefresh={buttonRefresh} />
         </div>
       </Modal>
     </div>
   );
 };
+
 
 const modalStyles = {
   content: {
