@@ -33,7 +33,7 @@ export default function Sliderproducts() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('../../public/data/data.json');
+        const response = await fetch('http://localhost:3001/products');
         if (!response.ok) {
           throw new Error(`Error en la solicitud: ${response.statusText}`);
         }

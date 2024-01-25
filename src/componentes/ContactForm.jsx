@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
   });
 
-  const [submitMessage, setSubmitMessage] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -18,10 +18,10 @@ const ContactForm = () => {
       [e.target.name]: e.target.value,
     });
 
-    if (e.target.name === 'email') {
+    if (e.target.name === "email") {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const isValidEmail = emailPattern.test(e.target.value);
-      setEmailError(isValidEmail ? '' : 'Ingrese un correo electrónico válido');
+      setEmailError(isValidEmail ? "" : "Ingrese un correo electrónico válido");
     }
   };
 
@@ -29,41 +29,45 @@ const ContactForm = () => {
     e.preventDefault();
 
     if (emailError) {
-      setSubmitMessage('Por favor, corrija los errores en el formulario antes de enviar.');
+      setSubmitMessage(
+        "Por favor, corrija los errores en el formulario antes de enviar."
+      );
       return;
     }
 
-    console.log('Formulario enviado:', formData);
+    console.log("Formulario enviado:", formData);
 
-    setSubmitMessage('¡Gracias por contactarnos! En breve responderemos a tu correo.');
+    setSubmitMessage(
+      "¡Gracias por contactarnos! En breve responderemos a tu correo."
+    );
 
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: "",
     });
   };
 
   setTimeout(() => {
-    setSubmitMessage('');
+    setSubmitMessage("");
   }, 3000);
 
   const handleClearForm = () => {
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: "",
     });
-    setSubmitMessage('');
+    setSubmitMessage("");
   };
 
   // Función para formatear el mensaje
   const formatMessage = (message) => {
-    const words = message.split(' ');
+    const words = message.split(" ");
 
     const formattedWords = words.map((word) => {
       const firstLetter = word.charAt(0).toLowerCase();
@@ -72,7 +76,7 @@ const ContactForm = () => {
       return firstLetter + restOfWord + lastLetter;
     });
 
-    return formattedWords.join(' ');
+    return formattedWords.join(" ");
   };
 
   return (
@@ -123,14 +127,14 @@ const ContactForm = () => {
             ></textarea>
 
             <button
-            type="submit"
-            className="bg-gradient-to-r from-[#d88530] via-[#f2cb79] to-[#f2df80] text-[#032940] font-bold py-2 px-4 rounded-md mt-4 hover:from-[#f2df80] hover:via-[#f2cb79] hover:to-[#d88530] transition ease-in-out duration-150 mr-2"
+              type="submit"
+              className="bg-gradient-to-r from-[#d88530] via-[#f2cb79] to-[#f2df80] text-[#032940] font-bold py-2 px-4 rounded-md mt-4 hover:from-[#f2df80] hover:via-[#f2cb79] hover:to-[#d88530] transition ease-in-out duration-150 mr-2"
             >
               Enviar
             </button>
             <button
-            type="submit"
-            className="bg-gradient-to-r from-[#d88530] via-[#f2cb79] to-[#f2df80] text-[#032940] font-bold py-2 px-4 rounded-md mt-4 hover:from-[#f2df80] hover:via-[#f2cb79] hover:to-[#d88530] transition ease-in-out duration-150"
+              type="submit"
+              className="bg-gradient-to-r from-[#d88530] via-[#f2cb79] to-[#f2df80] text-[#032940] font-bold py-2 px-4 rounded-md mt-4 hover:from-[#f2df80] hover:via-[#f2cb79] hover:to-[#d88530] transition ease-in-out duration-150"
             >
               Limpiar Formulario
             </button>

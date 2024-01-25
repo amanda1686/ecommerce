@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import abuela from '../assets/imagenes/abuela.jpg';
-import charla from '../assets/imagenes/charla.jpg';
-import limpieza from '../assets/imagenes/limpieza.jpg';
-import xicon from '../../public/img/logo/xicon.png'
+import abuela from "../../public/img/abuela.jpg";
+import charla from "../../public/img/charla.jpg";
+import limpieza from "../../public/img/limpieza.jpg";
+import xicon from "../../public/img/logo/xicon.png";
 
-const images = [
-  abuela,
-  charla,
-  limpieza,
-];
+const images = [abuela, charla, limpieza];
 
 export default function Servicescard() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -25,13 +21,15 @@ export default function Servicescard() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí puedes manejar la lógica del formulario
-    console.log('Formulario enviado');
+    console.log("Formulario enviado");
     closeModal(); // Cierra el modal después de enviar el formulario
   };
 
   return (
     <>
-      <h1 className='text-center text-black text-4xl font-bold mt-10 gap-10 ml-auto py-5'>Servicios</h1>
+      <h1 className="text-center text-black text-4xl font-bold mt-10 gap-10 ml-auto py-5">
+        Servicios
+      </h1>
       <div className="flex justify-center items-center space-x-4">
         {images.map((imageUrl, index) => (
           <div
@@ -54,8 +52,8 @@ export default function Servicescard() {
       </div>
       <br />
 
-     {/* Modal */}
-     {selectedImage && (
+      {/* Modal */}
+      {selectedImage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
           <div className="relative max-w-screen-md w-full bg-white p-8 rounded-lg flex flex-col items-center">
             <p className="text-2xl font-bold mb-4">
@@ -75,7 +73,10 @@ export default function Servicescard() {
                 Correo Electrónico:
                 <input type="email" className="border rounded p-2 w-full" />
               </label>
-              <button type="submit" className="bg-blue-500 text-white rounded p-2 hover:bg-amber-500">
+              <button
+                type="submit"
+                className="bg-blue-500 text-white rounded p-2 hover:bg-amber-500"
+              >
                 Enviar
               </button>
             </form>
@@ -92,6 +93,5 @@ export default function Servicescard() {
     </>
   );
 }
-
 
 

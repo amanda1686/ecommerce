@@ -1,35 +1,43 @@
-import React from 'react'
-import './App.css'
-import Navbar from './componentes/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Product from './pages/Product'
-import Login from './pages/Login'
-import Productounico from './pages/Productdetails'
-import Aboutus from './pages/Aboutus'
-import Home from './pages/Home'
-import Footer from './componentes/Footer'
-import { CartProvider } from './context/CartContext';
-import '@fortawesome/fontawesome-free/css/all.css';
+import React from "react";
+import "./App.css";
+import Navbar from "./componentes/NavBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Product from "./pages/Product";
+import Login from "./pages/Login";
+import Productounico from "./pages/Productdetails";
+import Aboutus from "./pages/Aboutus";
+import Home from "./pages/Home";
+import Footer from "./componentes/Footer";
+import { CartProvider } from "./context/CartContext";
+import Wish from "./pages/Wish"; 
+import SignUp from "./pages/SignUp";
+import Checkout from "./pages/Checkout";
+import Catalog from './componentes/Catalog';
+import Services from "./pages/Services";
+
 
 
 function App() {
-
   return (
     <BrowserRouter>
-    <Navbar />
-   
-   
+      <Navbar />
+        <CartProvider>
       <Routes>
-        <Route path='/Product' element={<Product />} />
-        <Route path='/Login' element={<Login />} />
-        <Route path='/Productdetails' element={<Productounico />} />
-        <Route path='/Aboutus' element={<Aboutus />} />
-        <Route path='/Home' element={<Home />} />
+        <Route path="/" element={<Home />} index />
+        <Route path="/Product" element={<Product />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Productdetails" element={<Productounico />} />
+        <Route path="/Aboutus" element={<Aboutus />} />
+        <Route path="/Wish" element={<Wish />} /> 
+        <Route path="/SignUp" element={<SignUp />} /> 
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/" element={<Catalog />} />
+        <Route path="/Services" element={<Services />} />
       </Routes>
+      </CartProvider>
       <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
-
-export default App
+export default App;
