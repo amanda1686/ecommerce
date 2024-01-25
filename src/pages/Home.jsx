@@ -1,11 +1,11 @@
 import React from 'react'
-import Sliderproducts from '../componentes/slider'
+import Sliderproducts from '../componentes/Slider';
 import Carousel from '../componentes/Carousel';
-import Servicescard from '../componentes/Servicescard'
-import Img from '../../public/img/slider1.jpg'
-import Img2 from '../../public/img/slider2.jpg'
-import Img3 from '../../public/img/slider3.jpg'
-import Img4 from '../../public/img/slider4.jpg'
+import Servicescard from '../componentes/Servicescard';
+import Img from '../../public/img/slider1.jpg';
+import Img2 from '../../public/img/slider2.jpg';
+import Img3 from '../../public/img/slider3.jpg';
+import Img4 from '../../public/img/slider4.jpg';
 
 const slides =[ Img, Img2, Img3, Img4 ]
 

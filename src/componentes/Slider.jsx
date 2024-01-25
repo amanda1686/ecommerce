@@ -13,7 +13,7 @@ export default function Sliderproducts() {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 800,
+        breakpoint: 950,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -33,7 +33,7 @@ export default function Sliderproducts() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('../../public/data/data.json');
+        const response = await fetch('http://localhost:3001/products');
         if (!response.ok) {
           throw new Error(`Error en la solicitud: ${response.statusText}`);
         }
@@ -89,6 +89,9 @@ export default function Sliderproducts() {
     </>
   );
 }
+
+
+
 
 
 

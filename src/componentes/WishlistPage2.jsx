@@ -16,7 +16,7 @@ const Catalog = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('.../../data/data.json'); // Ajusta la ruta del archivo JSON según tu estructura de carpetas
+      const response = await fetch('http://localhost:3001/products'); // Ajusta la ruta del archivo JSON según tu estructura de carpetas
       const data = await response.json();
       setProducts(data);
     };
