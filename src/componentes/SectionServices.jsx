@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function SectionServices({
   title,
@@ -36,11 +35,9 @@ function SectionServices({
                 <li key={index}>{item}</li>
               ))}
             </ul>
-            <Link to="../login">
-              <button className="butser bg-gradient-to-r from-[#d88530] via-[#f2cb79] to-[#f2df80] text-[#032940] font-bold py-2 px-4 rounded-md hover:from-[#f2df80] hover:via-[#f2cb79] hover:to-[#d88530] transition ease-in-out duration-150 mx-auto">
-                {buttonText}
-              </button>
-            </Link>
+            <button className="butser bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+              {buttonText}
+            </button>
           </div>
         </div>
       </div>

@@ -13,8 +13,8 @@ function CleaningSection() {
       "- Aseo y higiene personal",
       "- Orden del mobiliario",
     ],
-    buttonText: "Más Información",
-    imageSrc: "../../public/img/limpieza.jpg",
+    buttonText: "Añadir al carrito",
+    imageSrc: "/img/limpieza.jpg",
     altText: "Una mujer limpiando una mesa con uniforme y guantes",
   };
 
