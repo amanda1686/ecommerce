@@ -14,6 +14,7 @@ const navigation = [
   { name: 'Login', href: '/Login', current: false },
   { name: 'About us', href: '/Aboutus', current: false },
   { name: 'Wishlist', href: '/Wish', current: false },
+  { name: 'Services', href: '/Services', current: false },
 ];
 
 function classNames(...classes) {
@@ -67,7 +68,7 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className="hidden sm:ml-4 sm:block mt-4">
-                  <div className="flex space-x-5 ms-80">
+                  <div className="flex space-x-1 ms-64 pr-8">
                     {navigation.map((item) => (
                       <Link 
                         to={item.href}
@@ -79,7 +80,7 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                        {item.name === 'Wishlist' && (
+                        {item.name === 'Wishlist' && wishlist.length > 0 && (
                           <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full p-1 text-xs">
                             {wishlist.length}
                           </span>

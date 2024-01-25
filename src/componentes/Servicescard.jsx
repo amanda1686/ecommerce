@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import abuela from '../../public/img/abuela.jpg';
-import charla from '../../public/img/charla.jpg';
-import limpieza from '../../public/img/limpieza.jpg';
-import xicon from '../../public/img/logo/xicon.png'
+import abuela from "../../public/img/abuela.jpg";
+import charla from "../../public/img/charla.jpg";
+import limpieza from "../../public/img/limpieza.jpg";
+import xicon from "../../public/img/logo/xicon.png";
 
-const images = [
-  abuela,
-  charla,
-  limpieza,
-];
+const images = [abuela, charla, limpieza];
 
 export default function Servicescard() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -25,27 +21,29 @@ export default function Servicescard() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí puedes manejar la lógica del formulario
-    console.log('Formulario enviado');
+    console.log("Formulario enviado");
     closeModal(); // Cierra el modal después de enviar el formulario
   };
 
   return (
     <>
-      <h1 className='text-center text-black text-4xl font-bold mt-10 gap-10 ml-auto py-5'>Servicios</h1>
-      <div className="flex justify-center items-center space-x-4 flex-wrap">
+      <h1 className="text-center text-black text-4xl font-bold mt-10 gap-10 ml-auto py-5">
+        Servicios
+      </h1>
+      <div className="flex justify-center items-center space-x-4">
         {images.map((imageUrl, index) => (
           <div
             key={index}
-            className="relative cursor-pointer group flex-shrink-0"
+            className="relative cursor-pointer group"
             onClick={() => openModal(imageUrl)}
           >
             <img
               src={imageUrl}
               alt={`Imagen ${index + 1}`}
-              className="rounded-lg h-[250px] opacity-1 group-hover:opacity-50"
+              className="rounded-lg h-[300px]"
             />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-              <p className="text-[#032940] text-lg font-semibold transition duration-300 opacity-0 group-hover:opacity-100">
+              <p className="text-white text-lg font-semibold transition duration-300 opacity-0 group-hover:opacity-100">
                 Más Información
               </p>
             </div>
@@ -54,9 +52,8 @@ export default function Servicescard() {
       </div>
       <br />
 
-
-     {/* Modal */}
-     {selectedImage && (
+      {/* Modal */}
+      {selectedImage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
           <div className="relative max-w-screen-md w-full bg-white p-8 rounded-lg flex flex-col items-center">
             <p className="text-2xl font-bold mb-4">
@@ -76,7 +73,10 @@ export default function Servicescard() {
                 Correo Electrónico:
                 <input type="email" className="border rounded p-2 w-full" />
               </label>
-              <button type="submit" className="bg-blue-500 text-white rounded p-2 hover:bg-amber-500">
+              <button
+                type="submit"
+                className="bg-blue-500 text-white rounded p-2 hover:bg-amber-500"
+              >
                 Enviar
               </button>
             </form>
@@ -93,6 +93,5 @@ export default function Servicescard() {
     </>
   );
 }
-
 
 
