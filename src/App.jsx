@@ -13,6 +13,7 @@ import Wish from "./pages/Wish";
 import SignUp from "./pages/SignUp";
 import Checkout from "./pages/Checkout";
 import Catalog from './componentes/Catalog';
+import Services from "./pages/Services";
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} /> 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/" element={<Catalog />} />
+        <Route path="/Services" element={<Services />} />
       </Routes>
       </CartProvider>
       <Footer />
