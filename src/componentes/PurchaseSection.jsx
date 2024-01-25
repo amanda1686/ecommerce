@@ -13,8 +13,8 @@ function PurchaseSection() {
       "- Elaboración de alimentos",
       "- Asistencia de nutrición",
     ],
-    buttonText: "Más Información",
-    imageSrc: "../../public/img/compra.jpg",
+    buttonText: "Añadir al carrito",
+    imageSrc: "/img/compra.jpg",
     altText: "Una mujer pagando en la caja de un supermercado",
   };
 
