@@ -28,13 +28,10 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Productdetails" element={<Productounico />} />
         <Route path="/Aboutus" element={<Aboutus />} />
-<<<<<<< HEAD
-=======
         <Route path="/Wish" element={<Wish />} /> 
         <Route path="/SignUp" element={<SignUp />} /> 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/" element={<Catalog />} />
->>>>>>> develop
         <Route path="/Services" element={<Services />} />
       </Routes>
       </CartProvider>
