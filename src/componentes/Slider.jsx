@@ -13,7 +13,7 @@ export default function Sliderproducts() {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 800,
+        breakpoint: 950,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -89,6 +89,9 @@ export default function Sliderproducts() {
     </>
   );
 }
+
+
+
 
 
 
