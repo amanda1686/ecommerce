@@ -9,12 +9,11 @@ import useWishlist from '../componentes/useWishlist'; // Ajusta la ruta según l
 import SearchBar from './SearchBar';
 
 const navigation = [
-  { name: 'Home', href: '/Home', current: true },
+  { name: 'Home', href: '/', current: true },
   { name: 'Product', href: '/Product', current: false },
   { name: 'Login', href: '/Login', current: false },
   { name: 'About us', href: '/Aboutus', current: false },
   { name: 'Wishlist', href: '/Wish', current: false },
-  { name: 'Services', href: '/Services', current: false },
 ];
 
 function classNames(...classes) {
@@ -59,7 +58,7 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href="/Home">
+                  <a href="/">
                     <img
                       className="h-16 w-auto"
                       src={ghandslogo}
@@ -68,7 +67,7 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className="hidden sm:ml-4 sm:block mt-4">
-                  <div className="flex space-x-1 ms-64 pr-8">
+                  <div className="flex space-x-5 ms-80">
                     {navigation.map((item) => (
                       <Link 
                         to={item.href}
@@ -80,7 +79,7 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                        {item.name === 'Wishlist' && wishlist.length > 0 && (
+                        {item.name === 'Wishlist' && (
                           <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white rounded-full p-1 text-xs">
                             {wishlist.length}
                           </span>
@@ -92,7 +91,8 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div>
-                  <CartButton onClick={() => setCartVisible(!isCartVisible)} />
+                  <CartButton onClick={() => setCartVisible(!isCartVisible)}
+                   />
                 </div>
                 <SearchBar />
                 <Menu as="div" className="relative ml-3">
