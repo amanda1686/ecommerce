@@ -214,7 +214,7 @@ function Signin() {
               <div className="flex justify-center items-center">
                 <label className="mr-2">¿Ya tienes una cuenta?</label>
                 <Link
-                  to="/Login2"
+                  to="/SignUp"
                   className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
                 >
                   <p>
