@@ -1,11 +1,15 @@
 import React from "react";
-import CompanionSection from "../componentes/CompanionSection"; 
-import PurchaseSection from "../componentes/PurchaseSection"; 
-import CleaningSection from "../componentes/CleaningSection"; 
+import CompanionSection from "../componentes/CompanionSection";
+import PurchaseSection from "../componentes/PurchaseSection";
+import CleaningSection from "../componentes/CleaningSection";
 
 function Services() {
   return (
     <div>
+      <h1 className="text-4xl font-bold text-center my-8">
+        Nuestros Servicios
+      </h1>
+
       <CompanionSection />
       <PurchaseSection />
       <CleaningSection />
