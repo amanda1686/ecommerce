@@ -43,8 +43,8 @@ const SearchBar = () => {
   };
 
  
-
   return (
+<<<<<<< HEAD
     <div className="flex items-center space-x-4">
       <input
         type="text"
@@ -58,7 +58,23 @@ const SearchBar = () => {
         <AiOutlineSearch size={25
         } style={{ color: 'white' }} />
       </button>
+=======
+    <div className="flex items-center p-5">
+      <div className="flex items-center bg-gray-200 rounded-md p-1">
+        <AiOutlineSearch size={20} style={{ color: 'gray', marginLeft: '5px' }} />
+        <input
+          type="text"
+          ref={searchInputRef}
+          onChange={searchProducts}
+          onKeyDown={handleEnterPress}
+          placeholder="Search..."
+          className="bg-transparent ml-2 outline-none border-none text-sm p-1"
+          style={{ width: '100px', height: '20px' }}
+        />
+      </div>
+>>>>>>> 9643e417d3494b7c16b6fdb481e66c97cb234aac
 
+      {/* Modal */}
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={modalStyles}>
         <div style={modalContentStyles}>
           <div style={headerStyles}>
@@ -74,6 +90,7 @@ const SearchBar = () => {
     </div>
   );
 };
+
 
 const modalStyles = {
   content: {

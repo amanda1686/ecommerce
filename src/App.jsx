@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./componentes/NavBar";
+import NavBar from "./componentes/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
 import Login from "./pages/Login";
@@ -15,13 +15,15 @@ import Checkout from "./pages/Checkout";
 import Catalog from './componentes/Catalog';
 import Services from "./pages/Services";
 import Date from "./pages/Date";
+import NavRegister from "./componentes/NavRegister";
 
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <NavRegister/>
+      <NavBar />
         <CartProvider>
       <Routes>
         <Route path="/" element={<Home />} index />
