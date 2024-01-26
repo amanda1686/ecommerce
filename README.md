@@ -1,6 +1,6 @@
 # GoldenHands Ecommerce
 
-¡Bienvenido a GoldenHands! Este es proyecto heredado, enfocado en ofrecer productos y servicios diseñados especialmente para adultos mayores. El e-commerce está desarrollado utilizando tecnologías modernas como React, Vite y Tailwind CSS para brindar una experiencia ágil y amigable para nuestros usuarios.
+¡Bienvenido a GoldenHands! Este es un proyecto heredado, enfocado en ofrecer productos y servicios diseñados especialmente para adultos mayores. El e-commerce está desarrollado utilizando tecnologías modernas como React, Vite y Tailwind CSS para brindar una experiencia ágil y amigable para nuestros usuarios.
 
 ## Capturas de Pantalla
 
