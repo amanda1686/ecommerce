@@ -35,7 +35,7 @@ const SearchBar = () => {
       const response = await fetch('http://localhost:3001/products');
       const productos = await response.json();
 
-      const resultados = productos.filter((producto) => producto.name.toLowerCase().includes(term));
+      const resultados = productos.filter((producto) => producto.name.toLowerCase().startsWith(term));
       setSearchResults(resultados);
       setSearchVisible(true);
       openModal();
