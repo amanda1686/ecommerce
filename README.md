@@ -50,21 +50,30 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
 4. **Instala las dependencias funcionales:**
    `bash
    # Instala otras dependencias comunes para proyectos React
+   ```
    npm install slick-carousel
+   ```
    ```
    npm install react-icons
    ```
+   ```
    npm install i react-feather
+   ```
    ```
    npm install --save react-google-recaptcha
    ```
+   ```
    npm i react-icons
+   ```
    ```
    npm i react-modal
    ```
+   ```
    npm install -g json-server
    ```
+   ```
    npm run json-server
+   ```
    ```
    npm install prop-types
    ```
