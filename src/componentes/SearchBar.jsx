@@ -43,22 +43,22 @@ const SearchBar = () => {
   };
 
  
-
   return (
-    <div className="flex items-center space-x-4">
-      <input
-        type="text"
-        ref={searchInputRef}
-        onChange={searchProducts}
-        onKeyDown={handleEnterPress}
-        placeholder="Search..."
-        className="border p-2 w-24 ml-7 h-6 hidden sm:block "
-      />
-      <button onClick={toggleSearch} className="text-white px-4 py-2 rounded">
-        <AiOutlineSearch size={25
-        } style={{ color: 'white' }} />
-      </button>
+    <div className="flex items-center p-5">
+      <div className="flex items-center bg-gray-200 rounded-md p-1">
+        <AiOutlineSearch size={20} style={{ color: 'gray', marginLeft: '5px' }} />
+        <input
+          type="text"
+          ref={searchInputRef}
+          onChange={searchProducts}
+          onKeyDown={handleEnterPress}
+          placeholder="Search..."
+          className="bg-transparent ml-2 outline-none border-none text-sm p-1"
+          style={{ width: '100px', height: '20px' }}
+        />
+      </div>
 
+      {/* Modal */}
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={modalStyles}>
         <div style={modalContentStyles}>
           <div style={headerStyles}>
@@ -74,6 +74,7 @@ const SearchBar = () => {
     </div>
   );
 };
+
 
 const modalStyles = {
   content: {

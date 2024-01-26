@@ -1,6 +1,5 @@
 import React from "react";
 import SectionServices from "../componentes/SectionServices";
-import AddToCartButton from "./AddToCartButton";
 
 function CompanionSection() {
   const companionData = {
