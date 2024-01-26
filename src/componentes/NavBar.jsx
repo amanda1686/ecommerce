@@ -197,7 +197,7 @@ export default function Navbar() {
                     onClick={finishPurchase}
                     className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-600"
                   >
-                    Finalizar compra : {total.toFixed(2)}€
+                    Finalizar compraa : {total.toFixed(2)}€
                   </button>
                 </>
               )}
