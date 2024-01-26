@@ -20,25 +20,25 @@ export default function Servicescard() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Lógica del formulario
+    // Aquí puedes manejar la lógica del formulario
     console.log('Formulario enviado');
-    closeModal();
+    closeModal(); // Cierra el modal después de enviar el formulario
   };
 
   return (
     <>
       <h1 className='text-center text-black text-4xl font-bold mt-10 gap-10 ml-auto py-5'>Servicios</h1>
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {images.map((imageUrl, index) => (
           <div
             key={index}
-            className="relative cursor-pointer group w-full md:w-1/2 lg:w-1/3"
+            className="relative cursor-pointer group"
             onClick={() => openModal(imageUrl)}
           >
             <img
               src={imageUrl}
               alt={`Imagen ${index + 1}`}
-              className="rounded-lg h-[300px] md:h-[400px] lg:h-[500px] w-full opacity-1 group-hover:opacity-50"
+              className="rounded-lg w-full h-auto opacity-1 group-hover:opacity-50"
             />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
               <p className="text-[#032940] text-lg font-semibold transition duration-300 opacity-0 group-hover:opacity-100">
@@ -60,7 +60,7 @@ export default function Servicescard() {
             <img
               src={selectedImage}
               alt="Imagen seleccionada"
-              className="rounded-lg h-[200px] mb-4"
+              className="rounded-lg w-full h-auto mb-4"
             />
             <form onSubmit={handleSubmit} className="w-full max-w-md">
               <label className="block mb-4">
@@ -88,6 +88,11 @@ export default function Servicescard() {
     </>
   );
 }
+
+
+
+
+
 
 
 
