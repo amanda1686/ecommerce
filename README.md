@@ -7,6 +7,7 @@
 _Página de Inicio_
 ![Inicio](public/img/ecommerceHome.png)
 
+
 _Explora Nuestros Productos_
 ![Productos](public/img/ecommerceProducts.png)
 
