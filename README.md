@@ -35,7 +35,7 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
 2. **Navega al directorio del proyecto:**
 
    ```bash
-   cd GoldenHands
+   cd ecommerce
    ```
 
 3. **Instala las dependencias básicas:**
