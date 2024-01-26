@@ -4,11 +4,11 @@
 
 ## Así se ve nuestra Web
 
-![Inicio](public/img/ecommerceHome.png)
 _Página de Inicio_
+![Inicio](public/img/ecommerceHome.png)
 
-![Productos](/screenshots/products.png)
 _Explora Nuestros Productos_
+![Productos](public/img/ecommerceProducts.png)
 
 ## Tecnologías Utilizadas
 
