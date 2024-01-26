@@ -7,7 +7,6 @@
 _Página de Inicio_
 ![Inicio](public/img/ecommerceHome.png)
 
-
 _Explora Nuestros Productos_
 ![Productos](public/img/ecommerceProducts.png)
 
@@ -44,35 +43,47 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
    ```bash
    npm install
    ```
-   
+
 4. **Instala las dependencias funcionales:**
-   
+
    ```
    npm install slick-carousel
    ```
+
    ```
    npm install react-icons
    ```
+
    ```
    npm install i react-feather
    ```
+
    ```
    npm install --save react-google-recaptcha
    ```
+
    ```
    npm i react-icons
    ```
+
    ```
    npm i react-modal
    ```
+
    ```
    npm install -g json-server
    ```
+
    ```
    npm run json-server
    ```
+
    ```
    npm install prop-types
+   ```
+
+   ```
+   npm install --save @fortawesome/fontawesome-free
    ```
 
 5. **Inicia la aplicación:**
@@ -85,21 +96,25 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
 ### Equipo Actual
 
 - **Amanda Rodiguez**
+
   - **Rol:** Product Owner / Desarrollador Frontend - Backend
   - **GitHub:** [usuario](https://github.com/amanda1686)
   - **LinkedIn:** [perfil](https://www.linkedin.com/in/amandarguez/)
 
 - **Mamen Fernandez**
+
   - **Rol:** Desarrollador Frontend - Backend
   - **GitHub:** [usuario](https://github.com/MamenFB)
   - **LinkedIn:** [perfil](www.linkedin.com/in/mamen-fb)
 
 - **Alexis Carrion**
+
   - **Rol:** Desarrollador Frontend - Backend
   - **GitHub:** [usuario](https://github.com/AlexisJhar)
   - **LinkedIn:** [perfil](https://www.linkedin.com/in/g-alexander-79b785296/)
 
 - **Mayir Ramirez**
+
   - **Rol:** Desarrollador Frontend - Backend
   - **GitHub:** [usuario](https://github.com/Mayonesio)
   - **LinkedIn:** [perfil](www.linkedin.com/in/mayir-ramirez)
@@ -110,12 +125,13 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
   - **LinkedIn:** [perfil](https://www.linkedin.com/in/danielazapataquintana/)
 
 ### Equipo Anterior
+
 Agradecemos al segundo equipo de desarrollo del proyecto por facilitarnos todo el material para el comienzo de este nuevo desarrollo.
+
 - **Fiorella**
 - **Jean Carlos**
 - **Abelardo**
 - **Mamen**
 - **Natalia**
-
 
 ¡Gracias por contribuir al desarrollo de GoldenHands! Si tienes alguna pregunta o problema, por favor, abre un issue o ponte en contacto con el equipo de desarrollo. ¡Esperamos que disfrutes explorando nuestro proyecto!
