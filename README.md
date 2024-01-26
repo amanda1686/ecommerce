@@ -45,8 +45,7 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
    ```
    
 4. **Instala las dependencias funcionales:**
-   ```
-   bash
+   
    ```
    npm install slick-carousel
    ```
