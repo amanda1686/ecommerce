@@ -3,6 +3,8 @@ import { FcSearch } from 'react-icons/fc';
 import { FaTimes } from 'react-icons/fa';
 import Modal from 'react-modal';
 import SearchResults from './SearchResults';
+import { AiOutlineSearch } from 'react-icons/ai';
+
 
 const SearchBar = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -53,7 +55,8 @@ const SearchBar = () => {
         className="border p-2 w-24 ml-7 h-6 hidden sm:block "
       />
       <button onClick={toggleSearch} className="text-white px-4 py-2 rounded">
-        <FcSearch size={30} />
+        <AiOutlineSearch size={25
+        } style={{ color: 'white' }} />
       </button>
 
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={modalStyles}>
