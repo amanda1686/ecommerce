@@ -44,16 +44,17 @@ const SearchBar = () => {
 
  
   return (
-    <div className="flex items-center justify-center p-5">
-      <div className="flex items-center bg-gray-200 p-2 rounded-lg">
-        <AiOutlineSearch size={25} style={{ color: 'gray', marginLeft: '10px' }} />
+    <div className="flex items-center p-5">
+      <div className="flex items-center bg-gray-200 rounded-md p-1">
+        <AiOutlineSearch size={20} style={{ color: 'gray', marginLeft: '5px' }} />
         <input
           type="text"
           ref={searchInputRef}
           onChange={searchProducts}
           onKeyDown={handleEnterPress}
           placeholder="Search..."
-          className="bg-transparent ml-2 outline-none border-none"
+          className="bg-transparent ml-2 outline-none border-none text-sm p-1"
+          style={{ width: '100px', height: '20px' }}
         />
       </div>
 
