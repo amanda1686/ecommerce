@@ -4,7 +4,7 @@
 
 ## Capturas de Pantalla
 
-![Inicio](/screenshots/home.png)
+![Inicio](public/img/ecommerceHome.png)
 _Página de Inicio_
 
 ![Productos](/screenshots/products.png)
@@ -105,8 +105,8 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
 
 - **Daniela Zapata**
   - **Rol:** Scrum Master / Desarrollador Frontend - Backend
-  - **GitHub:** [usuario](https://github.com/Mayonesio)
-  - **LinkedIn:** [perfil](www.linkedin.com/in/mayir-ramirez)
+  - **GitHub:** [usuario](https://github.com/DANIELAZAPATA0724)
+  - **LinkedIn:** [perfil](https://www.linkedin.com/in/danielazapataquintana/)
 
 ### Equipo Anterior
 Agradecemos al segundo equipo de desarrollo del proyecto por facilitarnos todo el material para el comienzo de este nuevo desarrollo.
