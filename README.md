@@ -43,14 +43,10 @@ Para instalar y ejecutar la aplicación localmente, sigue estos sencillos pasos:
    ```bash
    npm install
    ```
-   # Instala otras dependencias comunes para proyectos React
-   npm install --save-dev react-query react-query/devtools react-query/error-boundary
    
-
 4. **Instala las dependencias funcionales:**
    `bash
-   # Instala otras dependencias comunes para proyectos React
-   ```
+  
    npm install slick-carousel
    ```
    ```
