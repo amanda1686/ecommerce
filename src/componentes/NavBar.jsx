@@ -46,7 +46,7 @@ export default function Navbar() {
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
-            <div className="relative flex h-24 items-center justify-between">
+          <div className="relative flex h-24 items-center ">
 
               <div className="flex space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-6 xl:space-x-8">
                 <div className="flex flex-shrink-0 items-center">
@@ -58,8 +58,8 @@ export default function Navbar() {
                     />
                   </a>
                 </div>
-                <div className="hidden sm:ml-4 sm:block mt-4">
-                  <div className="flex space-x-5 ms-64">
+                <div className="hidden sm:ml-4 sm:block flex-end mt-4">
+                  <div className="flex space-x-5 lg:ml-[38vw] md:ml-[21vw]"
                     {navigation.map((item) => (
                       <Link
                         to={item.href}
