@@ -118,4 +118,3 @@ Agradecemos al segundo equipo de desarrollo del proyecto por facilitarnos todo e
 
 
 ¡Gracias por contribuir al desarrollo de GoldenHands! Si tienes alguna pregunta o problema, por favor, abre un issue o ponte en contacto con el equipo de desarrollo. ¡Esperamos que disfrutes explorando nuestro proyecto!
-
