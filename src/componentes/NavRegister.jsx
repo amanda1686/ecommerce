@@ -15,8 +15,8 @@ const NavRegister = () => {
   return (
     <>
       <div className=" inset-y-0 right-0 justify-center flex items-center pr-2  sm:inset-auto sm:ml-6 sm:pr-0 sm:justify-end 2xl:absolute">
-        <CartButton onClick={() => setCartVisible(!isCartVisible)} />
         <SearchBar />
+        <CartButton onClick={() => setCartVisible(!isCartVisible)} />
         <Menu as="div" className="relative ml-2">
           <div>
             <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -52,7 +52,7 @@ const NavRegister = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    href="/Signin"
+                    href="/SignUp"
                     className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                   >
                     Sign In
