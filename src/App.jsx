@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import "./App.css";
+import NavBar from "./componentes/NavBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Product from "./pages/Product";
+import Login from "./pages/Login";
+import Productounico from "./pages/Productdetails";
+import Aboutus from "./pages/Aboutus";
+import Home from "./pages/Home";
+import Footer from "./componentes/Footer";
+import { CartProvider } from "./context/CartContext";
+import Wish from "./pages/Wish"; 
+import SignUp from "./pages/SignUp";
+import Checkout from "./pages/Checkout";
+import Catalog from './componentes/Catalog';
+import Services from "./pages/Services";
+import Date from "./pages/Date";
+import NavRegister from "./componentes/NavRegister";
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <NavRegister/>
+      <NavBar />
+        <CartProvider>
+      <Routes>
+        <Route path="/" element={<Home />} index />
+        <Route path="/Product" element={<Product />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Productdetails" element={<Productounico />} />
+        <Route path="/Aboutus" element={<Aboutus />} />
+        <Route path="/Wish" element={<Wish />} /> 
+        <Route path="/SignUp" element={<SignUp />} /> 
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/" element={<Catalog />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Date" element={<Date />} />
+      </Routes>
+      </CartProvider>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
