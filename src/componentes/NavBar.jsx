@@ -58,8 +58,8 @@ export default function Navbar() {
                     />
                   </a>
                 </div>
-                <div className="hidden sm:ml-4 sm:block mt-4">
-                  <div className="flex space-x-5 ms-64">
+                <div className="hidden sm:ml-4 sm:block flex-end mt-4">
+                  <div className="flex space-x-5 lg:ml-[38vw] md:ml-[21vw]">
                     {navigation.map((item) => (
                       <Link
                         to={item.href}

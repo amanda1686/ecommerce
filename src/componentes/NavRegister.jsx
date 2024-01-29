@@ -14,7 +14,7 @@ const NavRegister = () => {
 
   return (
     <>
-      <div className=" inset-y-0 right-0 justify-center flex items-center pr-2  sm:inset-auto sm:ml-6 sm:pr-0 sm:justify-end 2xl:absolute">
+      <div className=" inset-y-0 right-1 justify-center flex items-center pr-2 sm:inset-auto sm:ml-6 sm:pr-0 sm:justify-end 2xl:absolute mr-3">
         <SearchBar />
         <CartButton onClick={() => setCartVisible(!isCartVisible)} />
         <Menu as="div" className="relative ml-2">
