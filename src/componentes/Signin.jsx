@@ -58,6 +58,7 @@ function Signin() {
     } else if (!/\d/.test(formData.Contraseña.trim())) {
       newErrors.Contraseña = 'La contraseña debe contener al menos un número';
     }
+    
 
     if (Object.keys(newErrors).length === 0) {
       // Si no hay errores, el formulario es válido

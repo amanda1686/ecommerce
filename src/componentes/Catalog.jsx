@@ -10,19 +10,19 @@ const Catalog = () => {
   const [cart, setCart] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
   const [total, setTotal] = useState(0);
-  const navigate = useNavigate();
-
   const [wishlist, setWishlist] = useState(() => {
     const storedWishlist = localStorage.getItem('wishlist');
     return storedWishlist ? JSON.parse(storedWishlist) : [];
   });
+  const [selectedCategory, setSelectedCategory] = useState('todos');
+  const itemsPerPage = 8;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/products'); // Reemplaza 'tu-endpoint' con la ruta correcta
+        const response = await axios.get('http://localhost:3001/products');
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -33,10 +33,8 @@ const Catalog = () => {
   }, []);
 
   useEffect(() => {
-    // Guardar el estado de la lista de deseos en localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-    // Calcular el total cada vez que se actualiza el carrito
     const newTotal = cart.reduce(
       (acc, product) => acc + product.price * product.quantity,
       0
@@ -44,96 +42,44 @@ const Catalog = () => {
     setTotal(newTotal);
   }, [wishlist, cart]);
 
-  const toggleWishlist = (product) => {
-    setWishlist((prevWishlist) => {
-      if (prevWishlist.includes(product.id)) {
-        return prevWishlist.filter((productId) => productId !== product.id);
-      } else {
-        return [...prevWishlist, product.id];
-      }
-    });
-  };
-
-  const toggleCartVisibility = () => {
-    setIsCartVisible(!isCartVisible);
-  };
-
-  const addToCart = (product) => {
-    const existingProduct = cart.find((item) => item.id === product.id);
-    const quantityToAdd = parseInt(quantities[product.id], 10) || 1;
-
-    if (existingProduct) {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + quantityToAdd }
-            : item
-        )
-      );
-    } else {
-      setCart([...cart, { ...product, quantity: quantityToAdd }]);
-    }
-
-    setTotal((prevTotal) => prevTotal + product.price * quantityToAdd);
-    setQuantities((prevQuantities) => ({ ...prevQuantities, [product.id]: 1 }));
-    setIsCartVisible(true);
-  };
-
-  const finishPurchase = () => {
-    console.log('Cart:', cart);
-    console.log('Total:', total);
-
-    // Lógica para finalizar la compra
-    navigate('/checkout', { state: { cart, total } });
-  };
-
-  const removeFromCart = (productId) => {
-    const updatedCart = cart.filter((product) => product.id !== productId);
-    setCart(updatedCart);
-    // También es recomendable actualizar el total aquí
-    const newTotal = updatedCart.reduce(
-      (acc, product) => acc + product.price * product.quantity,
-      0
-    );
-    setTotal(newTotal);
-  };
-
-  const decreaseQuantity = (productId) => {
-    const updatedCart = cart.map((item) => {
-      if (item.id === productId && item.quantity > 1) {
-        return { ...item, quantity: item.quantity - 1 };
-      }
-      return item;
-    });
-
-    setCart(updatedCart);
-    recalculateTotal(updatedCart);
-  };
-
-  const recalculateTotal = (updatedCart) => {
-    const newTotal = updatedCart.reduce((acc, product) => acc + product.price * product.quantity, 0);
-    setTotal(newTotal);
-  };
-
-  const indexOfLastProduct = currentPage * itemsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
   };
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl text-center font-semibold mb-4">Productos</h1>
+      <div className="flex space-x-4 mb-4">
+        <button
+          className={`px-4 py-2 bg-gray-200 rounded-md ${selectedCategory === 'todos' && 'bg-blue-500 text-white'}`}
+          onClick={() => handleCategoryChange('todos')}
+        >
+          Todos
+        </button>
+        <button
+          className={`px-4 py-2 bg-gray-200 rounded-md ${selectedCategory === 'celiacos' && 'bg-blue-500 text-white'}`}
+          onClick={() => handleCategoryChange('celiaco')}
+        >
+          Celíaco
+        </button>
+        <button
+          className={`px-4 py-2 bg-gray-200 rounded-md ${selectedCategory === 'frutos' && 'bg-blue-500 text-white'}`}
+          onClick={() => handleCategoryChange('frutos')}
+        >
+          Frutos
+        </button>
+        <button
+          className={`px-4 py-2 bg-gray-200 rounded-md ${selectedCategory === 'lacteos' && 'bg-blue-500 text-white'}`}
+          onClick={() => handleCategoryChange('lacteos')}
+        >
+          Lácteos
+        </button>
+      </div>
 
-      {/* Catálogo de Productos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {currentProducts && Array.isArray(currentProducts) ? (
-          currentProducts.map((product) => (
+        {products
+          .filter(product => selectedCategory === 'todos' || product.category === selectedCategory)
+          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+          .map((product) => (
             <div key={product.id} className="bg-white p-4 shadow-md rounded-md">
               <Link to={`/Productdetails?product=${encodeURIComponent(JSON.stringify(product))}`}>
                 <img
@@ -190,17 +136,14 @@ const Catalog = () => {
                 </button>
               </div>
             </div>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
+          ))}
       </div>
 
       <Pagination
         itemsPerPage={itemsPerPage}
         totalItems={products.length}
         currentPage={currentPage}
-        paginate={paginate}
+        paginate={setCurrentPage}
       />
 
       {isCartVisible && (

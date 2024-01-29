@@ -52,39 +52,40 @@ export default function Servicescard() {
 
       {/* Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
-          <div className="relative max-w-screen-md w-full bg-white p-8 rounded-lg flex flex-col items-center">
-            <p className="text-2xl font-bold mb-4">
-              Nos ponemos en contacto contigo
-            </p>
-            <img
-              src={selectedImage}
-              alt="Imagen seleccionada"
-              className="rounded-lg w-full h-auto mb-4"
-            />
-            <form onSubmit={handleSubmit} className="w-full max-w-md">
-              <label className="block mb-4">
-                Nombre:
-                <input type="text" className="border rounded p-2 w-full" />
-              </label>
-              <label className="block mb-4">
-                Correo Electrónico:
-                <input type="email" className="border rounded p-2 w-full" />
-              </label>
-              <button type="submit" className="bg-blue-500 text-white rounded p-2 hover:bg-amber-500">
-                Enviar
-              </button>
-            </form>
-            <button
-              type="button"
-              className="absolute top-4 right-4 text-black"
-              onClick={closeModal}
-            >
-              <img src={xicon} alt="" />
-            </button>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+    <div className="relative w-[50%] h-[80%] bg-white p-4 rounded-lg flex flex-col items-center">
+      <p className="text-lg font-bold mb-2">
+        Nos ponemos en contacto contigo
+      </p>
+      <img
+        src={selectedImage}
+        alt="Imagen seleccionada"
+        className="rounded-lg w-[50%] h-[50%] object-cover mb-2"
+      />
+      <form onSubmit={handleSubmit} className="w-full max-w-md">
+        <label className="block mb-2">
+          Nombre:
+          <input type="text" className="border rounded p-2 w-full" />
+        </label>
+        <label className="block mb-2">
+          Correo Electrónico:
+          <input type="email" className="border rounded p-2 w-full" />
+        </label>
+        <button type="submit" className="bg-blue-500 text-white rounded p-2 hover:bg-amber-500">
+          Enviar
+        </button>
+      </form>
+      <button
+        type="button"
+        className="absolute top-2 right-2 text-black"
+        onClick={closeModal}
+      >
+        <img src={xicon} alt="" />
+      </button>
+    </div>
+  </div>
+)}
+
     </>
   );
 }
