@@ -189,15 +189,14 @@ function Signin() {
                 <p className='text-red-500'>{errors.recaptcha}</p>
               )}
             </div>
-            <Link to="/Date">
+            
             <button
           className="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:ring-blue-800 text-white"
             type="submit"
             >
             Crear cuenta
           </button>
-            </Link>
-
+           
             <div className="flex mt-7 items-center text-center">
               <hr className="border-gray-300 border-1 w-full rounded-md" />
               <label className="block font-medium text-sm text-gray-600 w-full">
